@@ -1,0 +1,70 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin:0;
+    background-image: url('images/img.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+}
+
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #dedede;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.jumbotron {
+    background: inherit;
+    color: #fff;
+    padding: 210px 25px;
+    font-family: Montserrat, sans-serif;
+}
+
+p{
+  color:#898989;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #000000;
+    z-index: 9999;
+    border: 0;
+    font-size: 13px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+@media screen and (max-width: 768px) {
+  .col-sm-4 {
+    text-align: center;
+    margin: 25px 0;
+  }
+  .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+  }
+}
