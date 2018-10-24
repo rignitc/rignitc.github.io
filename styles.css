@@ -16,7 +16,7 @@ body{
     line-height: 1.8;
 }
 
-h2 {
+h2{
     font-size: 24px;
     text-transform: uppercase;
     color: #dedede;
@@ -35,7 +35,7 @@ p{
   color:#898980;
 }
 
-.navbar {
+.navbar{
     margin-bottom: 0;
     background-color: #000000;
     z-index: 9999;
@@ -46,19 +46,22 @@ p{
     border-radius: 0;
     font-family: Montserrat, sans-serif;
 }
-.navbar li a, .navbar .navbar-brand {
+
+.navbar li a, .navbar .navbar-brand{
     color: #fff !important;
 }
-.navbar-nav li a:hover, .navbar-nav li.active a {
+
+.navbar-nav li a:hover, .navbar-nav li.active a{
     color: #f4511e !important;
     background-color: #fff !important;
 }
-.navbar-default .navbar-toggle {
+
+.navbar-default .navbar-toggle{
     border-color: transparent;
     color: #fff !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){
   .col-sm-4 {
     text-align: center;
     margin: 25px 0;
