@@ -9,14 +9,15 @@ on:
       - main
       - dev
 
+# Set permissions for the GITHUB_TOKEN
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
-  pull-requests: write # Required to post the preview link in comments
+  pull-requests: write # Required if you want to post comments later
 
 jobs:
-  build-and-preview:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -28,28 +29,32 @@ jobs:
       - name: Build Site 🏗️
         run: npm run build
 
-      # --- PREVIEW LOGIC FOR PULL REQUESTS ---
-      - name: Deploy Preview 🚀
+      # --- INTERNAL PREVIEW LOGIC ---
+      # This tricks GitHub Pages into hosting a preview in a subfolder
+      - name: Prepare Preview Subfolder 📂
         if: github.event_name == 'pull_request'
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: ./dist
-          preview-branch: gh-pages # It will host previews in subfolders on this branch
-          umbrella-dir: pr-preview
+        run: |
+          PR_NUMBER=${{ github.event.number }}
+          mkdir -p dist/preview/pr-$PR_NUMBER
+          # Copy the build into the subfolder so it can be viewed at /preview/pr-XX/
+          cp -r dist/* dist/preview/pr-$PR_NUMBER/ || true
+          echo "PREVIEW_URL=https://rignitc.com/preview/pr-$PR_NUMBER/" >> $GITHUB_ENV
 
-      # --- PRODUCTION DEPLOY FOR MAIN ---
-      - name: Upload Production Artifact ⬆️
-        if: github.ref == 'refs/heads/main'
+      - name: Upload Artifact ⬆️
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
 
-  deploy-production:
+  deploy:
+    # Only deploy to the live site on pushes to main
+    # PRs will build and upload the artifact to check for errors, 
+    # but only 'main' triggers the actual deployment to rignitc.com
     if: github.ref == 'refs/heads/main'
-    needs: build-and-preview
-    runs-on: ubuntu-latest
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Deploy to GitHub Pages 🚀
         id: deployment
