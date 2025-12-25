@@ -3,16 +3,20 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # Runs the build when pushing to your test branch
+      - main
+  pull_request:
+    branches:
+      - main
+      - dev
 
-# Set permissions for the GITHUB_TOKEN to allow uploading and deploying
 permissions:
-  contents: read # Read permission is usually sufficient for source code
-  pages: write   # REQUIRED for deploying to GitHub Pages
-  id-token: write # REQUIRED for authenticating with the deploy action
+  contents: write
+  pages: write
+  id-token: write
+  pull-requests: write # Required to post the preview link in comments
 
 jobs:
-  build:
+  build-and-preview:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -23,20 +27,30 @@ jobs:
 
       - name: Build Site 🏗️
         run: npm run build
-      
-      # 1. Upload the built site (your 'dist' folder) as an artifact
-      - name: Upload Artifact ⬆️
+
+      # --- PREVIEW LOGIC FOR PULL REQUESTS ---
+      - name: Deploy Preview 🚀
+        if: github.event_name == 'pull_request'
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./dist
+          preview-branch: gh-pages # It will host previews in subfolders on this branch
+          umbrella-dir: pr-preview
+
+      # --- PRODUCTION DEPLOY FOR MAIN ---
+      - name: Upload Production Artifact ⬆️
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # This must match your output folder
+          path: './dist'
 
-  deploy:
+  deploy-production:
+    if: github.ref == 'refs/heads/main'
+    needs: build-and-preview
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }} # The final URL output
-    runs-on: ubuntu-latest
-    needs: build # This job must wait for the 'build' job to finish
     steps:
       - name: Deploy to GitHub Pages 🚀
         id: deployment
-        uses: actions/deploy-pages@v4 # This official action handles the final deployment
+        uses: actions/deploy-pages@v4
