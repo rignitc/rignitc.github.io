@@ -1,0 +1,98 @@
+[
+    {
+        "name": "NITHIN THOMAS",
+        "photo": "/rignitc.github.io/assets/images/team/founders/NITHIN-THOMAS.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/nithin-thomas-automation-engineer/"
+        }
+        ]
+    },
+    {
+        "name": "GEORGE V JOSEPH",
+        "photo": "/rignitc.github.io/assets/images/team/founders/GEORGE-V-JOSEPH.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/georgevj/"
+        }
+        ]
+    },
+    {
+        "name": "ARAVIND E VIJAYAN",
+        "photo": "/rignitc.github.io/assets/images/team/founders/ARAVIND-E-VIJAYAN.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/evaravind/"
+
+        }
+        ]
+
+    },
+    {
+        "name": "JIBIN RAJAN",
+        "photo": "/rignitc.github.io/assets/images/team/founders/JIBIN-RAJAN.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/jibinrajan/"
+
+        }
+        ]
+
+    },
+    {
+        "name": "HARISH NARAYANASWAMY",
+        "photo": "/rignitc.github.io/assets/images/team/founders/harish-n.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/harish-narayan/"
+
+        }
+        ]
+
+    },
+    {
+        "name": "RATAN SADANANDAN",
+        "photo": "/rignitc.github.io/assets/images/team/founders/RATAN-SADANANDAN.webp",
+        "role": "Team Member",
+        "socials": []
+    },
+    {
+        "name": "SAFVAN P",
+        "photo": "/rignitc.github.io/assets/images/team/founders/Safvan_Palathingal.webp",
+        "role": "Team Member",
+        "socials": []
+    },
+    {
+        "name": "Hari Prasanth",
+        "photo": "/rignitc.github.io/assets/images/team/founders/hari-p.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/hariscorner"
+        }
+        ]
+    },
+    {
+        "name": "Ajith Anil Meera",
+        "photo": "/rignitc.github.io/assets/images/team/founders/ajith-am.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/ajitham1994"
+        }
+        ]
+    }
+    
+]
