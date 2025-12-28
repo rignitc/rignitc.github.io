@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RIGNITC | Write your blog</title>
+  <link rel="stylesheet" href="/src/styles/navbar.css" />
+  <link rel="stylesheet" href="/src/styles/footer.css" />
+  <link rel="icon" type="image/png" href="/assets/images/logog.webp" />
+  <link rel="stylesheet" href="/src/styles/cursor.css" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Cropper.js for image cropping -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" />
+  <style>
+    .hamburger-menu {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="navbar-placeholder"></div>
+  <main>
+    <section class="hero" aria-labelledby="ach-head">
+      <div class="left">
+        <h1 id="ach-head">Welcome!</h1>
+      </div>
+    </section>
+
+    <!-- Blog Form Section -->
+    <section class="blog-form-section" id="blog-form-section">
+      <div class="container">
+        <h2>Submit Your Blog Post</h2>
+        <form id="blog-form">
+          <div class="form-group">
+            <label for="author-name">Your Name</label>
+            <input type="text" id="author-name" name="authorName" required />
+          </div>
+
+          <div class="form-group">
+            <label for="author-email">Email</label>
+            <input type="email" id="author-email" name="authorEmail" required />
+          </div>
+
+          <div class="form-group">
+            <label for="blog-title">Title</label>
+            <input type="text" id="blog-title" name="blogTitle" required />
+          </div>
+
+          <!--<div class="form-group">
+            <label for="blog-category">Category</label>
+            <select id="blog-category" name="category" required>
+              <option value="">Select a category</option>
+              <option value="robotics">Robotics</option>
+              <option value="ai-ml">AI & Machine Learning</option>
+              <option value="competitions">Competitions</option>
+              <option value="projects">Projects</option>
+              <option value="tutorials">Tutorials</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="custom-category-group">
+            <label for="custom-category">Specify Category</label>
+            <input type="text" id="custom-category" name="customCategory" placeholder="Enter custom category" />
+          </div>-->
+
+          <div class="form-group">
+            <label for="blog-cover-file">Upload Cover Image</label>
+            <input type="file" id="blog-cover-file" name="coverImageFile" accept="image/*" />
+            <small style="color: #888; display: block; margin-top: 0.5rem;">Image will be cropped to 1:1 ratio</small>
+          </div>
+
+          <div class="form-group">
+            <label for="blog-images">Additional Images</label>
+            <input type="file" id="blog-images" name="blogImages" accept="image/*" multiple />
+            <small style="color: #888; display: block; margin-top: 0.5rem;">Upload multiple images for your blog
+              post</small>
+          </div>
+
+          <!-- Image Preview Section -->
+          <div id="images-preview-container" style="display: none;">
+            <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Uploaded Images</h3>
+            <div id="images-preview-list" class="images-preview-list"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="blog-content">Content</label>
+            <textarea id="blog-content" name="blogContent" rows="15" placeholder="Use only Markdown format"
+              required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="blog-tags">Tags</label>
+            <input type="text" id="blog-tags" name="tags" placeholder="robotics, arduino, tutorial" />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Preview Blog</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="blog-preview-section" id="blog-preview-section" style="display: none">
+      <div class="container">
+        <h2>Preview</h2>
+        <div class="preview-container">
+          <article class="blog-post-preview">
+            <div id="preview-cover-image"></div>
+            <h1 id="preview-title"></h1>
+            <div class="blog-meta">
+              <span class="author" id="preview-author"></span>
+              <span class="date" id="preview-date"></span>
+              <span class="category" id="preview-category"></span>
+            </div>
+            <div id="preview-content" class="blog-content"></div>
+            <div class="blog-tags" id="preview-tags"></div>
+          </article>
+        </div>
+        <div class="preview-actions">
+          <button type="button" class="btn-secondary" id="edit-blog">
+            Edi
+          </button>
+          <button type="button" class="btn-primary" id="submit-blog">
+            Submit
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image Cropper Modal -->
+    <div id="cropper-modal" class="cropper-modal" style="display: none;">
+      <div class="cropper-modal-content">
+        <div class="cropper-modal-header">
+          <h2>Crop Cover Image</h2>
+          <button type="button" class="close-modal" id="close-cropper">&times;</button>
+        </div>
+        <div class="cropper-container-wrapper">
+          <img id="cropper-image" src="" alt="Image to crop" />
+        </div>
+        <div class="cropper-modal-actions">
+          <button type="button" class="btn-secondary" id="cancel-crop">Cancel</button>
+          <button type="button" class="btn-primary" id="apply-crop">Apply Crop</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <section class="success-section" id="success-section" style="display: none">
+      <div class="container">
+        <div class="success-message">
+          <h2>✓ Submitted Successfully!</h2>
+          <p>
+            Congratulations! Your blog post has been submitted!!!
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div class="cursor"></div>
+  <script src="/src/scripts/cursor.js"></script>
+  <script src="/src/scripts/mobile-navbar.js"></script>
+  <script src="/src/scripts/componentLoader.js"></script>
+
+  <script>
+    loadComponent("navbar-placeholder", "/src/components/navbar.html");
+    loadComponent("footer-placeholder", "/src/components/footer.html");
+  </script>
+
+  <script src="/src/scripts/email-verify.js"></script>
+  <script>
+    // Check if user is logged in, redirect to email-input if not
+    if (!isUserLoggedIn()) {
+      window.location.href = "/src/pages/blog-input/_email-input/index.html";
+    } else {
+      // Get logged in user's email and name
+      const userEmail = getLoggedInEmail();
+      const userName = getLoggedInName();
+
+      // Display welcome message with user's name in the h1 heading
+      const welcomeHeading = document.getElementById("ach-head");
+      if (welcomeHeading && userName) {
+        welcomeHeading.textContent = `Welcome, ${userName}!`;
+      }
+
+      // Pre-fill name field with logged in user's name
+      const nameField = document.getElementById("author-name");
+      if (nameField && userName) {
+        nameField.value = userName;
+        nameField.readOnly = true; // Make it read-only so user can't change it
+      }
+
+      // Pre-fill email field with logged in user's email
+      const emailField = document.getElementById("author-email");
+      if (emailField && userEmail) {
+        emailField.value = userEmail;
+        emailField.readOnly = true; // Make it read-only so user can't change it
+      }
+    }
+
+
+    // Handle category selection to show/hide custom input
+    /*
+    const categorySelect = document.getElementById('blog-category');
+    const customCategoryGroup = document.getElementById('custom-category-group');
+    const customCategoryInput = document.getElementById('custom-category');
+
+    if (categorySelect && customCategoryGroup && customCategoryInput) {
+      categorySelect.addEventListener('change', function () {
+        if (this.value === 'other') {
+          customCategoryGroup.style.display = 'block';
+          customCategoryInput.required = true;
+        } else {
+          customCategoryGroup.style.display = 'none';
+          customCategoryInput.required = false;
+          customCategoryInput.value = '';
+        }
+      });
+    }
+    */
+  </script>
+  <script src="/src/scripts/activities.js"></script>
+  <script src="/src/scripts/config.js"></script>
+  <script src="/src/scripts/github-client.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+  <script src="/src/scripts/blogs-input.js"></script>
+</body>
+
+</html>
+```
