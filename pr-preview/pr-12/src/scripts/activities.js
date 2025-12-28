@@ -42,5 +42,5 @@ async function loadActivities(type, url, containerId, emptyId) {
     }
 }
 
-loadActivities('workshops', '/rignitc.github.io/pr-preview/pr-12/src/data/activities/workshops.json', 'workshops', 'workshops-empty');
-loadActivities('exhibitions', '/rignitc.github.io/pr-preview/pr-12/src/data/activities/exhib.json', 'exhibitions', 'exhibitions-empty');
+loadActivities('workshops', '/pr-preview/pr-12/src/data/activities/workshops.json', 'workshops', 'workshops-empty');
+loadActivities('exhibitions', '/pr-preview/pr-12/src/data/activities/exhib.json', 'exhibitions', 'exhibitions-empty');

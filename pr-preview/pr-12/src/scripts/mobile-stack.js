@@ -1,5 +1,5 @@
 // Load stack data and create mobile scrolling banner
-fetch('/rignitc.github.io/pr-preview/pr-12/src/data/projects/stack.json')
+fetch('/pr-preview/pr-12/src/data/projects/stack.json')
     .then(response => response.json())
     .then(data => {
         const mobileScrollContainer = document.getElementById('mobile-stack-scroll');

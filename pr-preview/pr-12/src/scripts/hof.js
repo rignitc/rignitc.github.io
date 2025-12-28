@@ -9,7 +9,7 @@ let currentlyPlaying = null;
 
 async function loadHOF() {
   const container = document.getElementById("hofGrid");
-  const res = await fetch("/rignitc.github.io/pr-preview/pr-12/src/data/hof/origo-robotics-challenge25.json");
+  const res = await fetch("/pr-preview/pr-12/src/data/hof/origo-robotics-challenge25.json");
   const data = await res.json();
   const entries = Array.isArray(data) ? data : [data];
 

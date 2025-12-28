@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   // Fetch featured projects configuration
   async function fetchFeaturedProjects() {
     try {
-      const response = await fetch('/rignitc.github.io/pr-preview/pr-12/src/data/projects/featured-projects.json');
+      const response = await fetch('/pr-preview/pr-12/src/data/projects/featured-projects.json');
       if (!response.ok) throw new Error('Failed to fetch featured projects');
       const data = await response.json();
       return data.featured_projects || [];
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   // Fetch all projects to get their data
   async function fetchAllProjects() {
     try {
-      const response = await fetch('/rignitc.github.io/pr-preview/pr-12/src/data/projects/projects.json');
+      const response = await fetch('/pr-preview/pr-12/src/data/projects/projects.json');
       if (!response.ok) throw new Error('Failed to fetch projects');
       const data = await response.json();
       return data || [];
@@ -66,13 +66,13 @@ document.addEventListener('DOMContentLoaded', async function() {
       projectCard.innerHTML = `
         <div class="project-image">
           <img
-            src="/rignitc.github.io/pr-preview/pr-12/assets/images/projects/${defaultImage}"
+            src="/pr-preview/pr-12/assets/images/projects/${defaultImage}"
             alt="${project.title}"
             class="default-img"
             loading="lazy"
           />
           <img
-            src="/rignitc.github.io/pr-preview/pr-12/assets/images/projects/${hoverImage}"
+            src="/pr-preview/pr-12/assets/images/projects/${hoverImage}"
             alt="${project.title} - Alternate view"
             class="hover-img"
             loading="lazy"

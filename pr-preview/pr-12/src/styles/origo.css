@@ -28,7 +28,7 @@ main {
 }
 @font-face {
   font-family: "Neue Machina";
-  src: url("/rignitc.github.io/pr-preview/pr-12/assets/fonts/Neue Machina Bl.otf") format("opentype");
+  src: url("/pr-preview/pr-12/assets/fonts/Neue Machina Bl.otf") format("opentype");
 }
 
 /* Navbar fix */
