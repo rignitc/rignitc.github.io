@@ -1,0 +1,107 @@
+[
+    {
+
+        "name": "Amar Nath H",
+        "photo": "/rignitc.github.io/assets/images/team/b14/amarnath-h.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/amarnathh"
+        }
+        ]
+    },
+    {
+
+        "name": "Guru Teja Bojanapu Reddy",
+        "photo": "/rignitc.github.io/assets/images/team/b14/g-t-b-reddy.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/guru-teja-b-r/"
+        }
+        ]
+    },
+    {
+
+        "name": "G Vijay Vamsi",
+        "photo": "/rignitc.github.io/assets/images/team/b14/vijay-vamsi.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/vijay-vamsi-1b949010b/"
+        }
+        ]
+    },
+    {
+        "name": "Karthik P Moothedath ",
+        "photo": "/rignitc.github.io/assets/images/team/b14/karthik.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/karthikpmoothedath/"
+        }
+        ]
+    },
+    {
+        "name": "Arun M",
+        "photo": "/rignitc.github.io/assets/images/team/b14/arun-m.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/arun-m-54b49218a/"
+        }
+        ]
+    },
+    {
+
+        "name": "P Chandana",
+        "photo": "/rignitc.github.io/assets/images/team/b14/chandana.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/chandana-poreddy-293085bb/"
+        }
+        ]
+    },
+    {
+
+        "name": "Rodrigues Neil Francis",
+        "photo": "/rignitc.github.io/assets/images/team/b14/neil.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/neilrodrigues51/"
+        }
+        ]
+    },
+    {
+
+        "name": "Dr. Su Shruthi CM",
+        "photo": "/rignitc.github.io/assets/images/team/b14/shruthi.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/shruthicm/"
+        }
+        ]
+    },
+    {
+        "name": "N M S Vyshnavi ",
+        "photo": "/rignitc.github.io/assets/images/team/b14/n-m-s-vyshnavi.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/monika-sri-vyshnavi-nagalla-169540100/"
+        }
+        ]
+    }
+]
