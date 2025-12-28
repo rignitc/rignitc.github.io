@@ -27,7 +27,7 @@
     <link rel="canonical" href="https://rignitc.com/hall-of-fame/" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/images/logog.webp"/>
+    <link rel="icon" type="image/png" href="/rignitc.github.io/assets/images/logog.webp"/>
     
     <!-- Preconnect to external domains for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,15 +39,15 @@
     <link href="https://fonts.cdnfonts.com/css/Neue Machina" rel="stylesheet"/>
     
     <!-- Preload critical CSS -->
-    <link rel="preload" href="/src/styles/hof.css" as="style" />
+    <link rel="preload" href="/rignitc.github.io/src/styles/hof.css" as="style" />
     
     <!-- Shared Styles -->
-    <link rel="stylesheet" href="/src/styles/fonts.css" />
-    <link rel="stylesheet" href="/src/styles/navbar.css"/>
-    <link rel="stylesheet" href="/src/styles/footer.css"/>
-    <link rel="stylesheet" href="/src/styles/cursor.css"/>
-    <link rel="stylesheet" href="/src/styles/hof.css"/>
-    <link rel="stylesheet" href="/src/styles/banner.css"/>
+    <link rel="stylesheet" href="/rignitc.github.io/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/rignitc.github.io/src/styles/navbar.css"/>
+    <link rel="stylesheet" href="/rignitc.github.io/src/styles/footer.css"/>
+    <link rel="stylesheet" href="/rignitc.github.io/src/styles/cursor.css"/>
+    <link rel="stylesheet" href="/rignitc.github.io/src/styles/hof.css"/>
+    <link rel="stylesheet" href="/rignitc.github.io/src/styles/banner.css"/>
   </head>
   <body>
     <div id="navbar-placeholder"></div>
@@ -77,9 +77,9 @@
     <div class="cursor-ring"></div>
     
     <!-- Defer non-critical JavaScript -->
-    <script src="/src/scripts/cursor.js" defer></script>
-    <script src="/src/scripts/mobile-navbar.js" defer></script>
-    <script src="/src/scripts/componentLoader.js" defer></script>
+    <script src="/rignitc.github.io/src/scripts/cursor.js" defer></script>
+    <script src="/rignitc.github.io/src/scripts/mobile-navbar.js" defer></script>
+    <script src="/rignitc.github.io/src/scripts/componentLoader.js" defer></script>
     <script defer>
       // Wait for DOM to be ready
       if (document.readyState === 'loading') {
@@ -89,15 +89,15 @@
       }
       
       function initComponents() {
-        loadComponent("navbar-placeholder", "/src/components/navbar.html");
-        loadComponent("footer-placeholder", "/src/components/footer.html");
-        loadComponent("banner-placeholder", "/src/components/banner.html", {
+        loadComponent("navbar-placeholder", "/rignitc.github.io/src/components/navbar.html");
+        loadComponent("footer-placeholder", "/rignitc.github.io/src/components/footer.html");
+        loadComponent("banner-placeholder", "/rignitc.github.io/src/components/banner.html", {
           link: "https://rignitc.com/activities/origo/",
           text: "ORIGO Robotics Challenge'25 — View the Challenge Overview and Guidelines <u>here</u>",
           target: "_blank"
         });
       }
     </script>
-    <script src="/src/scripts/hof.js" defer></script>
+    <script src="/rignitc.github.io/src/scripts/hof.js" defer></script>
   </body>
 </html>

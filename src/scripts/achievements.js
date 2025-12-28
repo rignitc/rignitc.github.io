@@ -239,7 +239,7 @@ function escapeHtml(str = '') {
 ================================= */
 loadAchievements(
   'competitions',
-  '/src/data/achievements/competitions.json',
+  '/rignitc.github.io/src/data/achievements/competitions.json',
   'achievements',
   'empty-placeholder',
   'view-more-achievements'
@@ -247,14 +247,14 @@ loadAchievements(
 
 loadAchievements(
   'startups',
-  '/src/data/achievements/startups.json',
+  '/rignitc.github.io/src/data/achievements/startups.json',
   'startups',
   'startups-empty'
 );
 
 loadAchievements(
   'research',
-  '/src/data/achievements/research.json',
+  '/rignitc.github.io/src/data/achievements/research.json',
   'research',
   'research-empty',
   'view-more-research'
