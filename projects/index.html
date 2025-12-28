@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <base href="//" />
+  <base href="/" />
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -12,14 +12,14 @@
     <meta property="og:title" content="Projects | RIGNITC" />
     <meta property="og:description" content="A curated showcase of projects by RIGNITC — demos, case studies and source links highlighting the tech stack and implementation details." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="//assets/images/logog.webp" />
+    <meta property="og:image" content="/assets/images/logog.webp" />
     <meta property="og:site_name" content="RIGNITC" />
     <meta property="og:url" content="" id="og-url" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Projects | RIGNITC" />
     <meta name="twitter:description" content="A curated showcase of projects by RIGNITC — demos, case studies and source links highlighting the tech stack and implementation details." />
-    <meta name="twitter:image" content="//assets/images/logog.webp" />
+    <meta name="twitter:image" content="/assets/images/logog.webp" />
 
     <script>
       (function () {
@@ -65,12 +65,12 @@
     />
 
     
-    <link rel="stylesheet" href="//src/styles/fonts.css" />
-    <link rel="stylesheet" href="//src/styles/navbar.css" />
-    <link rel="stylesheet" href="//src/styles/footer.css" />
-    <link rel="icon" type="image/png" href="//assets/images/logog.webp" />
-    <link rel="stylesheet" href="//src/styles/cursor.css" />
-    <link rel="stylesheet" href="//src/styles/projects.css" />
+    <link rel="stylesheet" href="/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/assets/images/logog.webp" />
+    <link rel="stylesheet" href="/src/styles/cursor.css" />
+    <link rel="stylesheet" href="/src/styles/projects.css" />
 
     <script type="application/ld+json">
       {
@@ -148,7 +148,7 @@
              Keeping it here ensures progressive enhancement for users with JS. -->
         <script>
           (function () {
-            fetch("//src/data/projects/stack.json")
+            fetch("/src/data/projects/stack.json")
               .then((response) => response.json())
               .then((data) => {
                 const stackContainer = document.getElementById("stack-icons");
@@ -207,9 +207,9 @@
     <div class="cursor" aria-hidden="true"></div>
     <div class="cursor-ring"></div>
     <!-- Defer non-critical scripts to improve first contentful paint -->
-    <script src="//src/scripts/cursor.js" defer></script>
-    <script src="//src/scripts/mobile-navbar.js" defer></script>
-    <script src="//src/scripts/componentLoader.js" defer></script>
+    <script src="/src/scripts/cursor.js" defer></script>
+    <script src="/src/scripts/mobile-navbar.js" defer></script>
+    <script src="/src/scripts/componentLoader.js" defer></script>
 
     <script>
       // Load header/footer components early but after parsing (componentLoader is deferred,
@@ -217,8 +217,8 @@
       (function () {
         function mountComponents() {
           if (typeof loadComponent === "function") {
-            loadComponent("navbar-placeholder", "//src/components/navbar.html");
-            loadComponent("footer-placeholder", "//src/components/footer.html");
+            loadComponent("navbar-placeholder", "/src/components/navbar.html");
+            loadComponent("footer-placeholder", "/src/components/footer.html");
           } else {
             // Retry once if loadComponent is not yet available
             setTimeout(mountComponents, 50);
@@ -232,7 +232,7 @@
       })();
     </script>
 
-    <script src="//src/scripts/projects.js" defer></script>
-    <script src="//src/scripts/mobile-stack.js" defer></script>
+    <script src="/src/scripts/projects.js" defer></script>
+    <script src="/src/scripts/mobile-stack.js" defer></script>
   </body>
 </html>
