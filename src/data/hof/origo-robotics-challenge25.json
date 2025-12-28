@@ -1,7 +1,7 @@
 [
   {
     "title": "Draw and Collect",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Sharath P Prajith",
     "winner": true,
     "roll_no": "B250494CS",
@@ -11,7 +11,7 @@
   },
  {
     "title": "HoloRig",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Joshua Jacob Thomas",
     "winner": true,
     "roll_no": "B250906CS",
@@ -21,7 +21,7 @@
   },
   {
     "title": "AT-AT Walker",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Ujjwal Nagar",
     "winner": true,
     "roll_no": "B250540CS",
@@ -31,7 +31,7 @@
   },
     {
     "title": "Light Pattern Based Locker",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Vinayak R",
     "winner": true,
     "roll_no": "B251308EE",
@@ -41,7 +41,7 @@
   },
   {
     "title": "Smart Cricket Stumps",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Kadhirnilan Thirumaran",
     "winner": true,
     "roll_no": "B251404EC",
@@ -51,7 +51,7 @@
   },
   {
     "title": "ESP-Assisted Typing Guide",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "H R Soorya Dev",
     "winner": true,
     "roll_no": "B250244CS",
@@ -61,7 +61,7 @@
   },
   {
     "title": "Neon Gesture Game",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Krishna Kumar Jha",
     "roll_no": "B250946EC",
     "category": "AI/ YOLO/ MEDIAPIPE",
@@ -70,7 +70,7 @@
   },
   {
     "title": "ID Card Verfication System",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Prabhu E S",
     "roll_no": "B251113EC",
     "category": "AI/ YOLO/ MEDIAPIPE",
@@ -79,7 +79,7 @@
   },
   {
     "title": "Robotic Arm",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Parth Rahate",
     "roll_no": "B251095PE",
     "category": "CAD",
@@ -88,7 +88,7 @@
   },
   {
     "title": "Torque Titan",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Tejas L",
     "roll_no": "B251267EE",
     "category": "CAD",
@@ -97,7 +97,7 @@
   },
   {
     "title": "Robotic Arm",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Mudunuri Harshitha",
     "roll_no": "B251013ME",
     "category": "CAD",
@@ -106,7 +106,7 @@
   },
   {
     "title": "Metal Fusion x JoJo's Beyblade",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Suraj Kaarthi S",
     "roll_no": "B251172EE",
     "category": "CAD",
@@ -115,7 +115,7 @@
   },
   {
     "title": "Robotic Arm",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Harshan Kumar S",
     "roll_no": "B250866ME",
     "category": "CAD",
@@ -124,7 +124,7 @@
   },
   {
     "title": "PCB for Drones",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Alento George Rajesh",
     "roll_no": "B250092PE",
     "category": "PCB Design",
@@ -133,7 +133,7 @@
   },
   {
     "title": "Tic-Tac-Toe Game",
-    "thumbnail": "/rignitc.github.io/assets/images/logo.webp",
+    "thumbnail": "//assets/images/logo.webp",
     "person": "Merin Juby",
     "roll_no": "B250332EC",
     "category": "Programming",
