@@ -35,7 +35,7 @@ body {
 /* GTA font */
 @font-face {
   font-family: 'Neue Machina';
-  src: url('/rignitc.github.io/assets/fonts/Neue Machina Bl.otf') format('opentype');
+  src: url('/assets/fonts/Neue Machina Bl.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
