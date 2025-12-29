@@ -1,40 +1,40 @@
 {
   "stack": {
     "ros_frameworks": [
-      { "src": "/pr-preview/pr-12/assets/images/stack/ros.svg", "alt": "Robot Operating System (ROS)" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/ros2.svg", "alt": "Robot Operating System 2 (ROS 2)" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/nav2.svg", "alt": "Navigation 2 (Nav2)" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/rviz.svg", "alt": "RViz visualization tool" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/mission-planner.webp", "alt": "Mission Planner" }
+      { "src": "/rignitc.github.io/assets/images/stack/ros.svg", "alt": "Robot Operating System (ROS)" },
+      { "src": "/rignitc.github.io/assets/images/stack/ros2.svg", "alt": "Robot Operating System 2 (ROS 2)" },
+      { "src": "/rignitc.github.io/assets/images/stack/nav2.svg", "alt": "Navigation 2 (Nav2)" },
+      { "src": "/rignitc.github.io/assets/images/stack/rviz.svg", "alt": "RViz visualization tool" },
+      { "src": "/rignitc.github.io/assets/images/stack/mission-planner.webp", "alt": "Mission Planner" }
     ],
     "simulation": [
-      { "src": "/pr-preview/pr-12/assets/images/stack/gazebo.svg", "alt": "Gazebo" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/webots.webp", "alt": "Webots" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/ignition.svg", "alt": "Ignition" }
+      { "src": "/rignitc.github.io/assets/images/stack/gazebo.svg", "alt": "Gazebo" },
+      { "src": "/rignitc.github.io/assets/images/stack/webots.webp", "alt": "Webots" },
+      { "src": "/rignitc.github.io/assets/images/stack/ignition.svg", "alt": "Ignition" }
     ],
     "programming": [
-      { "src": "/pr-preview/pr-12/assets/images/stack/python.svg", "alt": "Python" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/c++.svg", "alt": "C++" }
+      { "src": "/rignitc.github.io/assets/images/stack/python.svg", "alt": "Python" },
+      { "src": "/rignitc.github.io/assets/images/stack/c++.svg", "alt": "C++" }
     ],
     "computer_vision_ai": [
-      { "src": "/pr-preview/pr-12/assets/images/stack/opencv.svg", "alt": "OpenCV" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/yolo.webp", "alt": "YOLO" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/mediapipe.webp", "alt": "MediaPipe" }
+      { "src": "/rignitc.github.io/assets/images/stack/opencv.svg", "alt": "OpenCV" },
+      { "src": "/rignitc.github.io/assets/images/stack/yolo.webp", "alt": "YOLO" },
+      { "src": "/rignitc.github.io/assets/images/stack/mediapipe.webp", "alt": "MediaPipe" }
     ],
     "hardware": [
-      { "src": "/pr-preview/pr-12/assets/images/stack/raspberry.svg", "alt": "Raspberry Pi" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/arduino.webp", "alt": "Arduino" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/espressif.webp", "alt": "Espressif" }
+      { "src": "/rignitc.github.io/assets/images/stack/raspberry.svg", "alt": "Raspberry Pi" },
+      { "src": "/rignitc.github.io/assets/images/stack/arduino.webp", "alt": "Arduino" },
+      { "src": "/rignitc.github.io/assets/images/stack/espressif.webp", "alt": "Espressif" }
     ],
     "cad": [
-      { "src": "/pr-preview/pr-12/assets/images/stack/solidworks.webp", "alt": "SolidWorks" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/fusion.webp", "alt": "Autodesk Fusion 360" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/creo.webp", "alt": "Creo" }
+      { "src": "/rignitc.github.io/assets/images/stack/solidworks.webp", "alt": "SolidWorks" },
+      { "src": "/rignitc.github.io/assets/images/stack/fusion.webp", "alt": "Autodesk Fusion 360" },
+      { "src": "/rignitc.github.io/assets/images/stack/creo.webp", "alt": "Creo" }
     ],
     "tools": [
-      { "src": "/pr-preview/pr-12/assets/images/stack/tux.webp", "alt": "Linux" },
-      { "src": "/pr-preview/pr-12/assets/images/stack/docker.webp", "alt": "Docker"},
-      { "src": "/pr-preview/pr-12/assets/images/stack/git.webp", "alt": "Git" }
+      { "src": "/rignitc.github.io/assets/images/stack/tux.webp", "alt": "Linux" },
+      { "src": "/rignitc.github.io/assets/images/stack/docker.webp", "alt": "Docker"},
+      { "src": "/rignitc.github.io/assets/images/stack/git.webp", "alt": "Git" }
 
     ]
   }
