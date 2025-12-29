@@ -42,5 +42,5 @@ async function loadActivities(type, url, containerId, emptyId) {
     }
 }
 
-loadActivities('workshops', '/src/data/activities/workshops.json', 'workshops', 'workshops-empty');
-loadActivities('exhibitions', '/src/data/activities/exhib.json', 'exhibitions', 'exhibitions-empty');
+loadActivities('workshops', '/rignitc.github.io/src/data/activities/workshops.json', 'workshops', 'workshops-empty');
+loadActivities('exhibitions', '/rignitc.github.io/src/data/activities/exhib.json', 'exhibitions', 'exhibitions-empty');

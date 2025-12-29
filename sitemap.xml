@@ -3,49 +3,49 @@
 
   <!-- Home -->
   <url>
-    <loc>https://rignitc.com/</loc>
+    <loc>https://rignitc.com/rignitc.github.io/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- About -->
   <url>
-    <loc>https://rignitc.com/about/</loc>
+    <loc>https://rignitc.com/rignitc.github.io/about/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Achievements -->
   <url>
-    <loc>https://rignitc.com/achievements/</loc>
+    <loc>https://rignitc.com/rignitc.github.io/achievements/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Activities -->
   <url>
-    <loc>https://rignitc.com/activities/</loc>
+    <loc>https://rignitc.com/rignitc.github.io/activities/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Contact -->
   <url>
-    <loc>https://rignitc.com/contact/</loc>
+    <loc>https://rignitc.com/rignitc.github.io/contact/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Projects -->
   <url>
-    <loc>https://rignitc.com/projects/</loc>
+    <loc>https://rignitc.com/rignitc.github.io/projects/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Team -->
   <url>
-    <loc>https://rignitc.com/team/</loc>
+    <loc>https://rignitc.com/rignitc.github.io/team/</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>

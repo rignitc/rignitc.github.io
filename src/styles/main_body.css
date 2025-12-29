@@ -14,7 +14,7 @@ body {
 /* Neue Machina Fonts */
 @font-face {
   font-family: "Neue Machina";
-  src: url("/assets/fonts/neue-machina/NeueMachina-Light.otf")
+  src: url("/rignitc.github.io/assets/fonts/neue-machina/NeueMachina-Light.otf")
     format("opentype");
   font-weight: 300;
   font-style: normal;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Neue Machina";
-  src: url("/assets/fonts/neue-machina/NeueMachina-Regular.otf")
+  src: url("/rignitc.github.io/assets/fonts/neue-machina/NeueMachina-Regular.otf")
     format("opentype");
   font-weight: 400;
   font-style: normal;
@@ -30,7 +30,7 @@ body {
 
 @font-face {
   font-family: "Neue Machina";
-  src: url("/assets/fonts/neue-machina/NeueMachina-Ultrabold.otf")
+  src: url("/rignitc.github.io/assets/fonts/neue-machina/NeueMachina-Ultrabold.otf")
     format("opentype");
   font-weight: 800;
   font-style: normal;

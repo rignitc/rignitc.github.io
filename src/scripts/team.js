@@ -24,7 +24,7 @@ async function loadYear(year) {
     grid.innerHTML = "Loading...";
     buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.year === year));
     try {
-        const resp = await fetch("/src/data/team/" + year + ".json", { cache: "no-cache" });
+        const resp = await fetch("/rignitc.github.io/src/data/team/" + year + ".json", { cache: "no-cache" });
         if (!resp.ok) throw new Error("failed");
         const data = await resp.json();
         grid.innerHTML = "";

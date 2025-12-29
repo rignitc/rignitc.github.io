@@ -118,7 +118,7 @@
         
         card.innerHTML = `
       <div class="media" aria-hidden="true">
-        <img loading="lazy" src="/assets/images/projects/${encodeURIComponent(project.image || 'placeholder-1.jpg')}" alt="${escapeHtml(project.title || '')}">
+        <img loading="lazy" src="/rignitc.github.io/assets/images/projects/${encodeURIComponent(project.image || 'placeholder-1.jpg')}" alt="${escapeHtml(project.title || '')}">
       </div>
       <div class="info">
         <h3 class="title" id="title-${slug(project.title || Math.random().toString(36).slice(2, 7))}">${escapeHtml(project.title)}</h3>
@@ -263,7 +263,7 @@
     
     async function fetchProjects() {
         try {
-            const r = await fetch('/src/data/projects/projects.json', { cache: 'no-cache' });
+            const r = await fetch('/rignitc.github.io/src/data/projects/projects.json', { cache: 'no-cache' });
             if (!r.ok) throw new Error('projects.json load failed');
             const data = await r.json();
             if (!Array.isArray(data)) throw new Error('projects.json must be array');
