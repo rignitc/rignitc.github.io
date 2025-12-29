@@ -24,19 +24,44 @@ jobs:
       - name: Build Site 🏗️
         run: npm run build
       
-      # 1. Upload the built site (your 'dist' folder) as an artifact
+      - name: Fix HTML paths 🔧
+        run: |
+          BASE_PREFIX=""
+          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|=\"/assets/|=\"$BASE_PREFIX/assets/|g" \
+              -e "s|=\"/src/|=\"$BASE_PREFIX/src/|g" \
+              -e "s|=\"/\"|=\"$BASE_PREFIX/\"|g" \
+              -e "s|\"/src/components/|\"$BASE_PREFIX/src/components/|g" \
+              -e "s|'/src/components/|'$BASE_PREFIX/src/components/|g" \
+              -e "s|href=\"/about/|href=\"$BASE_PREFIX/about/|g" \
+              -e "s|href=\"/projects/|href=\"$BASE_PREFIX/projects/|g" \
+              -e "s|href=\"/achievements/|href=\"$BASE_PREFIX/achievements/|g" \
+              -e "s|href=\"/activities/|href=\"$BASE_PREFIX/activities/|g" \
+              -e "s|href=\"/team/|href=\"$BASE_PREFIX/team/|g" \
+              -e "s|href=\"/blogs/|href=\"$BASE_PREFIX/blogs/|g" \
+              -e "s|href=\"/contact/|href=\"$BASE_PREFIX/contact/|g" \
+              -e "s|href=\"/hof/|href=\"$BASE_PREFIX/hof/|g" \
+              -e "s|link: \"/hof/|link: \"$BASE_PREFIX/hof/|g" \
+              -e "s|link: '/hof/|link: '$BASE_PREFIX/hof/|g" \
+              -e "s|href=\"/sitemap.xml|href=\"$BASE_PREFIX/sitemap.xml|g" \
+              -e "s@fetch(\"/src/data/@fetch(\"$BASE_PREFIX/src/data/@g" \
+              -e "s@fetch('/src/data/@fetch('$BASE_PREFIX/src/data/@g" \
+              "$file"
+          done
+
       - name: Upload Artifact ⬆️
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # This must match your output folder
+          path: './dist'
 
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }} # The final URL output
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build # This job must wait for the 'build' job to finish
+    needs: build
     steps:
-      - name: Deploy to GitHub Pages 🚀
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # This official action handles the final deployment
+        uses: actions/deploy-pages@v4
