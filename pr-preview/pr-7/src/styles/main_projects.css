@@ -1,0 +1,270 @@
+#projects {
+  position: relative;
+  /* allow pseudo-element overlay */
+  background: #111;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  overflow: hidden;
+  /* clip pseudo-element */
+}
+
+#projects::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: radial-gradient(circle, #fff 2px, transparent 2px),
+    radial-gradient(circle, #fff 2px, transparent 2px);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+
+  opacity: 0.15;
+  /* subtle dot grid */
+  pointer-events: none;
+  /* don’t block clicks */
+  z-index: 0;
+}
+
+.projects-container {
+  position: relative;
+  /* sit above the dot grid */
+  z-index: 1;
+  padding: 120px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.projects-header {
+  font-size: 3.5rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.projects-header.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  width: 100%;
+}
+
+.project-card {
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  padding: 0px; 
+}
+
+.project-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Image Replacement Animation --- */
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #000;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-image img.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.project-card:hover .project-image img.default-img {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.project-card:hover .project-image img.hover-img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* --- Content Below Image --- */
+.project-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1; 
+}
+
+.project-content h2 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.project-content p {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.project-link {
+  align-self: flex-start;
+  font-family: "Sora", "Inter", sans-serif;
+  font-size: 1.3rem; /* Adjusted size */
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 22px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin-top: auto; 
+}
+
+.project-link:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.03); /* Slight scale */
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+}
+
+.view-all {
+  font-family: "Neue Machina", sans-serif !important;
+  display: flex;
+  justify-content: right;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.8s ease-out;
+  width: 100%;
+}
+
+.view-all.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.view-all a {
+  font-size: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.view-all a:hover {
+  color: #aaa;
+  border-color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 80px 24px;
+  }
+
+  .projects-header {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 80px 20px;
+    gap: 30px;
+  }
+
+  .projects-header {
+    font-size: 2.2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    /* ✅ stack cards */
+    gap: 24px;
+  }
+
+  .project-image {
+    height: 180px;
+    /* smaller image box */
+  }
+
+  .project-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .project-content p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+
+  .project-content {
+    padding: 16px;
+  }
+  .project-link {
+    font-size: 1rem;
+    padding: 8px 18px;
+  }
+
+  .view-all {
+    justify-content: center;
+    /* center on mobile */
+  }
+
+  .view-all a {
+    font-size: 1.2rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add to main_projects.css */
+
+/* No projects message */
+.projects-grid .no-featured {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  font-family: "Inter", sans-serif;
+}
+
+/* Animation delays for staggered appearance */
+.project-card:nth-child(1) { transition-delay: 0.1s; }
+.project-card:nth-child(2) { transition-delay: 0.2s; }
+.project-card:nth-child(3) { transition-delay: 0.3s; }
+.project-card:nth-child(4) { transition-delay: 0.4s; }
+.project-card:nth-child(5) { transition-delay: 0.5s; }

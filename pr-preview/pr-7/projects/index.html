@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <base href="/pr-preview/pr-7/" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Projects | RIGNITC</title>
+    
+    <meta name="description" content="A curated showcase of projects by RIGNITC — demos, case studies and source links highlighting the tech stack and implementation details." />
+    <meta name="robots" content="index,follow" />
+
+    <meta property="og:title" content="Projects | RIGNITC" />
+    <meta property="og:description" content="A curated showcase of projects by RIGNITC — demos, case studies and source links highlighting the tech stack and implementation details." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/pr-preview/pr-7/assets/images/logog.webp" />
+    <meta property="og:site_name" content="RIGNITC" />
+    <meta property="og:url" content="" id="og-url" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Projects | RIGNITC" />
+    <meta name="twitter:description" content="A curated showcase of projects by RIGNITC — demos, case studies and source links highlighting the tech stack and implementation details." />
+    <meta name="twitter:image" content="/pr-preview/pr-7/assets/images/logog.webp" />
+
+    <script>
+      (function () {
+        try {
+          var link = document.createElement('link');
+          link.rel = 'canonical';
+          link.href = location.origin + location.pathname;
+          document.head.appendChild(link);
+
+          // set OG url as well
+          var og = document.getElementById('og-url');
+          if (og) og.setAttribute('content', location.origin + location.pathname);
+        } catch (e) {
+          console.warn('Canonical/OG URL injection failed', e);
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@300;600;800&family=Poppins:wght@100;200;400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/f39c9c54bc3f4f701ca3b18d675dde06?family=F3D+Techno+W00+Shadow"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/pr-preview/pr-7/assets/images/logog.webp" />
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/cursor.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/projects.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "RIGNITC",
+            "url": ""
+          },
+          {
+            "@type": "WebPage",
+            "name": "Projects",
+            "url": "",
+            "description": "A curated showcase of projects by RIGNITC — demos, case studies and source links highlighting the tech stack and implementation details."
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": "/projects/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script>
+      // Fill absolute urls in structured data (runs early)
+      (function () {
+        try {
+          var origin = location.origin;
+          var scripts = document.querySelectorAll('script[type="application/ld+json"]');
+          scripts.forEach(function (s) {
+            try {
+              var json = JSON.parse(s.textContent);
+              if (Array.isArray(json['@graph'])) {
+                json['@graph'].forEach(function (node) {
+                  if (node.url === "") node.url = origin + location.pathname;
+                });
+                s.textContent = JSON.stringify(json);
+              }
+            } catch (e) {}
+          });
+        } catch (e) {
+          console.warn('Failed to patch JSON-LD URLs', e);
+        }
+      })();
+    </script>
+
+    <meta name="theme-color" content="#000000" />
+  </head>
+
+  <body>
+    <div id="navbar-placeholder" aria-hidden="false"></div>
+
+    <main class="page" role="main" id="main-content">
+      <!-- Title wrapper with STACK (left) and PROJECTS (right) -->
+      <header class="title-wrapper" aria-labelledby="page-title">
+        <div class="stack-section" aria-hidden="false">
+          <h2 class="stack-title">STACK</h2>
+          <div class="stack-icons" id="stack-icons" aria-hidden="false"></div>
+        </div>
+
+        <!-- Note: this inline script generates images for the tech stack.
+             Keeping it here ensures progressive enhancement for users with JS. -->
+        <script>
+          (function () {
+            fetch("/pr-preview/pr-7/src/data/projects/stack.json")
+              .then((response) => response.json())
+              .then((data) => {
+                const stackContainer = document.getElementById("stack-icons");
+                if (!stackContainer) return;
+
+                Object.values(data.stack).forEach((category) => {
+                  const groupDiv = document.createElement("div");
+                  groupDiv.classList.add("stack-group");
+
+                  category.forEach((item) => {
+                    const img = document.createElement("img");
+                    // Be explicit about lazy loading to improve LCP
+                    img.loading = "lazy";
+                    img.src = item.src;
+                    // ensure there's an alt; fallback to item's name when missing
+                    img.alt = item.alt || item.name || "Technology icon";
+                    img.width = item.width || 48;
+                    img.height = item.height || 48;
+                    groupDiv.appendChild(img);
+                  });
+
+                  stackContainer.appendChild(groupDiv);
+                });
+              })
+              .catch((err) =>
+                console.error("Error loading stack.json:", err)
+              );
+          })();
+        </script>
+
+        <h1 class="site-title" id="page-title">PROJECTS</h1>
+      </header>
+
+      <!-- Mobile Stack Banner (hidden on desktop) -->
+      <div class="mobile-stack-banner" id="mobile-stack-banner" aria-hidden="true">
+        <div class="stack-scroll" id="mobile-stack-scroll"></div>
+      </div>
+
+      <section
+        class="projects-container"
+        id="projects-container"
+        aria-live="polite"
+        aria-labelledby="page-title"
+      >
+        <!-- JS will create .row elements containing up to 2 .card elements each -->
+        <noscript>
+          <p>
+            Project listings require JavaScript. Please enable JavaScript to view
+            the project's content or check the repository on GitHub.
+          </p>
+        </noscript>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-ring"></div>
+    <!-- Defer non-critical scripts to improve first contentful paint -->
+    <script src="/pr-preview/pr-7/src/scripts/cursor.js" defer></script>
+    <script src="/pr-preview/pr-7/src/scripts/mobile-navbar.js" defer></script>
+    <script src="/pr-preview/pr-7/src/scripts/componentLoader.js" defer></script>
+
+    <script>
+      // Load header/footer components early but after parsing (componentLoader is deferred,
+      // so we call loadComponent after DOMContentLoaded to ensure script is available).
+      (function () {
+        function mountComponents() {
+          if (typeof loadComponent === "function") {
+            loadComponent("navbar-placeholder", "/pr-preview/pr-7/src/components/navbar.html");
+            loadComponent("footer-placeholder", "/pr-preview/pr-7/src/components/footer.html");
+          } else {
+            // Retry once if loadComponent is not yet available
+            setTimeout(mountComponents, 50);
+          }
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", mountComponents);
+        } else {
+          mountComponents();
+        }
+      })();
+    </script>
+
+    <script src="/pr-preview/pr-7/src/scripts/projects.js" defer></script>
+    <script src="/pr-preview/pr-7/src/scripts/mobile-stack.js" defer></script>
+  </body>
+</html>

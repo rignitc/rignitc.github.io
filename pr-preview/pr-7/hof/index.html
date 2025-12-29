@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- SEO Meta Tags -->
+    <title>ORIGO Robotics Challenge 2025 Hall of Fame | RIGNITC</title>
+    <meta name="description" content="Explore the Hall of Fame showcasing winning robotics projects from ORIGO Robotics Challenge 2025. Discover innovative robots, technical creativity, and engineering excellence from RIGNITC competition participants." />
+    <meta name="keywords" content="ORIGO Robotics Challenge, robotics competition 2025, RIGNITC, hall of fame, robotics projects, engineering challenge, NIT Calicut robotics" />
+    <meta name="author" content="RIGNITC" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ORIGO Robotics Challenge 2025 Hall of Fame | RIGNITC" />
+    <meta property="og:description" content="A curated gallery celebrating technical creativity and innovation from ORIGO'25 robotics challenge participants." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rignitc.com/hall-of-fame/" />
+    <meta property="og:image" content="https://rignitc.com/assets/images/logog.webp" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ORIGO Robotics Challenge 2025 Hall of Fame" />
+    <meta name="twitter:description" content="Explore winning robotics projects from ORIGO'25. Innovation meets engineering excellence." />
+    <meta name="twitter:image" content="https://rignitc.com/assets/images/logog.webp" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rignitc.com/hall-of-fame/" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/pr-preview/pr-7/assets/images/logog.webp"/>
+    
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+    
+    <!-- Fonts with display=swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;600;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.cdnfonts.com/css/Neue Machina" rel="stylesheet"/>
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="/pr-preview/pr-7/src/styles/hof.css" as="style" />
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/navbar.css"/>
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/footer.css"/>
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/cursor.css"/>
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/hof.css"/>
+    <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/banner.css"/>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <div id="banner-placeholder"></div>
+    
+    <main>
+      <header class="page-header">
+        <h1>ORIGO Robotics Challenge'25</h1>
+        <p class="tagline">
+          A curated gallery and tribute to the technical creativity and wonder that brought ORIGO'25's challenge to life. Dive in and be inspired!
+        </p>
+        <p class="winner-note">
+          <svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true">
+            <rect x="4" y="24" width="16" height="20" />
+            <rect x="24" y="12" width="16" height="32" />
+            <rect x="44" y="20" width="16" height="24" />
+          </svg>
+          Indicates the winner in their respective category
+        </p>
+      </header>
+      
+      <section class="hof-grid" id="hofGrid" aria-label="Hall of Fame Projects"></section>
+    </main>
+    
+    <div id="footer-placeholder"></div>
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-ring"></div>
+    
+    <!-- Defer non-critical JavaScript -->
+    <script src="/pr-preview/pr-7/src/scripts/cursor.js" defer></script>
+    <script src="/pr-preview/pr-7/src/scripts/mobile-navbar.js" defer></script>
+    <script src="/pr-preview/pr-7/src/scripts/componentLoader.js" defer></script>
+    <script defer>
+      // Wait for DOM to be ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initComponents);
+      } else {
+        initComponents();
+      }
+      
+      function initComponents() {
+        loadComponent("navbar-placeholder", "/pr-preview/pr-7/src/components/navbar.html");
+        loadComponent("footer-placeholder", "/pr-preview/pr-7/src/components/footer.html");
+        loadComponent("banner-placeholder", "/pr-preview/pr-7/src/components/banner.html", {
+          link: "https://rignitc.com/activities/origo/",
+          text: "ORIGO Robotics Challenge'25 — View the Challenge Overview and Guidelines <u>here</u>",
+          target: "_blank"
+        });
+      }
+    </script>
+    <script src="/pr-preview/pr-7/src/scripts/hof.js" defer></script>
+  </body>
+</html>

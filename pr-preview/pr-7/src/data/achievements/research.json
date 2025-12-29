@@ -1,0 +1,70 @@
+[
+  {
+    "title": "DEPLOYABLE/RETRACTABLE PREFABRICATED BUILDING STRUCTURE",
+    "description": "A low-cost deployable/retractable prefabricated building structure, preferably 'Z' shaped, that retracts to one fourth its volume. It comprises flooring, roofing, wall, window, and door panels with foldable, sliding, and permanent wall types, interconnected via pivoted edges."
+  },
+  {
+    "title": "ADJUSTABLE BED FOR PHYSICALLY CHALLENGED",
+    "description": "An adjustable bed with actuators for sagittal and transverse movements, liftable upper and lower body sections, and adjustable leg frames. Features a single actuator with independent side-turning mechanism for improved patient support."
+  },
+  {
+    "title": "A HYPERMETROPIC CONVOLUTIONAL NEURAL NETWORK DEVICE FOR SMALL SIZE OBJECT DETECTION AND A METHOD THEREOF",
+    "description": "A lightweight CNN architecture optimized for small object detection using shallow feature extraction, depth-wise concatenation, and modular design. Validated on diverse datasets, it enables real-time detection in surveillance, aerial monitoring, and robotics."
+  },
+  {
+    "title": "CNN BASED METHOD AND SYSTEM FOR REAL-TIME OBJECT DETECTION WITH FEATURE REUSE AND CSP NET TO REDUCE COMPUTATIONS",
+    "description": "A CNN-based real-time object detection system using Cross-Stage Partial (CSP) networks to reduce computations while reusing early features. Features dual-layer prediction for accuracy and adaptability for defense, remote sensing, and surveillance."
+  },
+  {
+    "title": "AN AIR ACTUATED RADIAL ROBOTIC GRIPPER ATTACHABLE TO A ROBOT MANIPULATOR ARM",
+    "description": "An air-actuated radial robotic gripper with symmetric baseplates, complementary gripping jaws, and spring-loaded lever piston mechanism. Its design ensures efficiency, fail-safe operation, and lower power consumption."
+  },
+  {
+    "title": "ROBOT FOR HIGH VOLTAGE ELECTRICAL TRANSMISSION LINE INSPECTION",
+    "description": "A robot with tower crossing and curved wire traversing mechanisms. Equipped with wheel motors, retractable anchor lines, gripper hooks, and 5-DOF arms for navigating towers and bends in transmission lines."
+  },
+  {
+    "title": "AUTOMATIC BOOK RETURNING SYSTEM",
+    "description": "An automated system with deposition, transfer, and storage units. Uses RFID readers, roller conveyors, and vertical stackers, all controlled by HMI, to streamline book returns."
+  },
+  {
+    "title": "ROBOTIC TREE CLIMBER",
+    "description": "A robotic tree climber with radially contracting toroidal pneumatic muscles and piston rod mechanisms for gripping and vertical movement along single-stem trees."
+  },
+  {
+    "title": "AUTOMATED ROBOTIC SYSTEM FOR CLEANING OF RAILWAY TRACKS",
+    "description": "A robotic system mounted on sliding and folding links for cleaning railway tracks. It retracts safely during train approach and uses an end effector for debris removal."
+  },
+  {
+    "title": "RADIALLY CONTRACTING TOROIDAL PNEUMATIC ARTIFICIAL MUSCLE",
+    "description": "A pneumatic muscle comprising a stretchable tube enclosed in a braided mesh. Designed to flatten when deflated and expand circularly when inflated, enabling efficient radial actuation."
+  },
+  {
+    "title": "DYNAMIC HEAD LOAD REDISTRIBUTING WEARABLE ROBOT",
+    "description": "A wearable robot with a load-supporting platform, shock absorbers, reinforced jacket, and helmet. Balances head loads dynamically in sagittal and coronal planes using springs and actuators."
+  },
+  {
+    "title": "ROBOTIC SYSTEM FOR HARVESTING CROPS IN VERTICAL FARMS AND METHOD THEREOF",
+    "description": "A robotic harvesting system for vertical farms that reduces human intervention, labor costs, and safety risks while optimizing productivity and resource use."
+  },
+  {
+    "title": "MULTI-ROTOR UNMANNED AERIAL VEHICLE (UAV) FOR PERFORMING SMART FARMING TO INCREASE AGRICULTURAL PRODUCTION AND METHOD THEREOF",
+    "description": "A multi-rotor UAV with soil sampling units for analyzing farmland soil parameters. Generates soil maps to aid farmers in crop management, offering cost-effective smart farming solutions."
+  },
+  {
+    "title": "AN AUTONOMOUS SWAB SAMPLING ROBOTIC SYSTEM AND METHOD OF OPERATING THE SAME",
+    "description": "A robotic system for automated swab sampling in medical exams. Includes nostril detection, sanitization, and swab reload units to safely and efficiently collect patient samples."
+  },
+  {
+    "title": "A COMPLIANT ROBOTIC END-EFFECTOR WITH FORCE MULTIPLICATION MECHANISM FOR EFFICIENT OBJECT MANIPULATION",
+    "description": "A compliant end-effector with fingers designed for adaptability and efficient grasping. Features force magnification through double rocker inversion, enabling lightweight yet effective object manipulation."
+  },
+  {
+    "title": "A ROBOTIC EXOSKELETON DEVICE FOR WRIST HAND REHABILITATION AND METHOD OF OPERATING THE SAME",
+    "description": "A robotic exoskeleton for wrist and hand rehab, supporting supination-pronation, extension-flexion, ulnar-radial deviations, and grip/release motions with user interface and controller."
+  },
+  {
+    "title": "A MULTI-FUNCTIONAL RECONFIGURABLE PROTECTION DEVICE AND METHOD OF OPERATING THE SAME",
+    "description": "A reconfigurable origami-inspired device usable as a shield, tent, or water vehicle. Comprises support frames, patterned sheets, driving units, and a control system for versatile protection and transport."
+  }
+]

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blogs</title>
+  <meta name="description" content="Blogs and learning resources" />
+  <meta name="keywords" content="blogs, learning, tutorials" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="RIGNITC" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rignitc.com/achievements" />
+  <meta property="og:title" content="RIGNITC Achievements | Competitions, Startups & Research" />
+  <meta property="og:description"
+    content="Explore RIGNITC's achievements in competitions, innovative startups, and groundbreaking research." />
+  <meta property="og:image" content="/pr-preview/pr-7/assets/images/logog.webp" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://rignitc.com/achievements" />
+  <meta property="twitter:title" content="RIGNITC Achievements | Competitions, Startups & Research" />
+  <meta property="twitter:description"
+    content="Explore RIGNITC's achievements in competitions, innovative startups, and groundbreaking research." />
+  <meta property="twitter:image" content="/pr-preview/pr-7/assets/images/logog.webp" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://rignitc.com/achievements" />
+
+  <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/navbar.css" />
+  <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/footer.css" />
+  <link rel="icon" type="image/png" href="/pr-preview/pr-7/assets/images/logog.webp" />
+  <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/cursor.css" />
+  <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/achievements.css" />
+  <link rel="stylesheet" href="/pr-preview/pr-7/src/styles/blog.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RIGNITC",
+      "url": "https://rignitc.com",
+      "logo": "https://rignitc.com/assets/images/logog.webp",
+      "description": "RIGNITC achievements in competitions, startups, and research",
+      "sameAs": []
+    }
+    </script>
+</head>
+
+<body>
+  <div id="navbar-placeholder"></div>
+  <main>
+    <section class="hero" aria-labelledby="blog-head">
+      <div class="left">
+        <h1 id="blog-head">Blogs</h1>
+        <p class="tagline">
+          Share knowledge, inspire innovation, and grow together.
+        </p>
+      </div>
+    </section>
+
+    <div class="achievements" id="blog-list" aria-live="polite">
+      <div class="empty" id="empty-placeholder" style="display: none">
+        No blogs found.
+      </div>
+    </div>
+
+    <div id="blog-content" style="display: none; padding: 22px; max-width: 800px; margin: 0 auto; color: #fff;"></div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <div class="cursor"></div>
+  <script src="/pr-preview/pr-7/src/scripts/cursor.js"></script>
+  <script src="/pr-preview/pr-7/src/scripts/mobile-navbar.js"></script>
+  <script src="/pr-preview/pr-7/src/scripts/componentLoader.js"></script>
+  <script>
+    loadComponent("navbar-placeholder", "/pr-preview/pr-7/src/components/navbar.html");
+    loadComponent("footer-placeholder", "/pr-preview/pr-7/src/components/footer.html");
+  </script>
+  <!-- No BLOG_PROXY_URL override; blogs.js will use same-origin /api/readme -->
+  <script src="/pr-preview/pr-7/src/scripts/config.js"></script>
+  <script src="/pr-preview/pr-7/src/scripts/github-client.js"></script>
+  <script src="/pr-preview/pr-7/src/scripts/blogs.js"></script>
+</body>
+
+</html>

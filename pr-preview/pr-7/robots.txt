@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rignitc.com/sitemap.xml
