@@ -70,6 +70,7 @@ jobs:
               -e "s|href=\"/achievements/|href=\"$BASE_PREFIX/achievements/|g" \
               -e "s|href=\"/activities/|href=\"$BASE_PREFIX/activities/|g" \
               -e "s|href=\"/team/|href=\"$BASE_PREFIX/team/|g" \
+              -e "s|href=\"/blogs/|href=\"$BASE_PREFIX/blogs/|g" \
               -e "s|href=\"/contact/|href=\"$BASE_PREFIX/contact/|g" \
               -e "s|href=\"/hof/|href=\"$BASE_PREFIX/hof/|g" \
               -e "s|link: \"/hof/|link: \"$BASE_PREFIX/hof/|g" \
