@@ -4,54 +4,14 @@ const BRANCH = 'main';
 const BASE_PATH = 'content/posts';
 
 class GithubClient {
-    constructor() {
-        if (window.RIGNITC_CONFIG && window.RIGNITC_CONFIG.GITHUB_TOKEN) {
-            this.token = window.RIGNITC_CONFIG.GITHUB_TOKEN;
-        } else {
-            this.token = localStorage.getItem('s_github_token');
-        }
-    }
-
-    async getToken() {
-        if (this.token) return this.token;
-        return null; // Try without token for public, or fail if private
-    }
-
-    async requireToken() {
-        const input = prompt('Please enter your GitHub Personal Access Token (PAT).');
-        if (input) {
-            this.token = input.trim();
-            localStorage.setItem('s_github_token', this.token);
-            return this.token;
-        }
-        return null;
-    }
-
-    clearToken() {
-        this.token = null;
-        localStorage.removeItem('s_github_token');
-        location.reload();
-    }
-
     async request(url, options = {}) {
-        const token = await this.getToken();
-
         const headers = {
             'Accept': 'application/vnd.github.v3+json',
             'Content-Type': 'application/json',
             ...options.headers
         };
 
-        if (token) {
-            headers['Authorization'] = `token ${token}`;
-        }
-
         const response = await fetch(url, { ...options, headers });
-
-        if (response.status === 401 && token) {
-            this.clearToken();
-            throw new Error('Invalid GitHub token. Please refresh and try again.');
-        }
 
         if (!response.ok) {
             const errText = await response.text();
@@ -93,18 +53,16 @@ class GithubClient {
                 const content = await this.getFileContent(indexPath);
                 const meta = this.parseFrontmatter(content) || {};
 
-                // Construct cover image URL
-                // Check dir contents for cover image - can cause rate limits with many blogs.
-                // Assuming standard naming 'cover.png' or 'cover.jpg' and public repo raw access or API download_url.
-
-                const dirContentsUrl = dir.url;
-                const dirFiles = await this.request(dirContentsUrl);
-
-                const coverFile = dirFiles.find(f => f.name.toLowerCase().startsWith('cover.'));
-
+                // Get cover image from frontmatter, or try common extensions
                 let coverUrl = null;
-                if (coverFile) {
-                    coverUrl = coverFile.download_url;
+                if (meta.cover) {
+                    // If cover is specified in frontmatter, use it
+                    coverUrl = meta.cover.startsWith('http') 
+                        ? meta.cover 
+                        : `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${dir.path}/${meta.cover}`;
+                } else {
+                    // Try common extensions
+                    coverUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${dir.path}/cover.webp`;
                 }
 
                 return {
@@ -129,12 +87,8 @@ class GithubClient {
     }
 
     async submitBlog(data) {
-        if (!this.token) {
-            await this.requireToken();
-        }
-        if (!this.token) {
-            throw new Error('GitHub token is required to submit a blog. Please provide your token.');
-        }
+        throw new Error('Blog submission requires authentication. This feature is not available for public access.');
+        
         const { title, content, author, email, tags, /* category, */ coverImageBase64, images } = data;
 
         // Create slug from title

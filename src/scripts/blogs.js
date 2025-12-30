@@ -150,7 +150,7 @@ async function loadBlogPost(container, blogId) {
     // Back Button (with block display for new line)
     const backBtn = '<a href="?" style="display: block; margin-bottom: 20px; color: var(--fg); text-decoration: none; font-weight: bold;">&larr; Back to Blogs</a>';
 
-    const headerHtml = `${backBtn}<h1 class="blog-header-title">${escapeHtml(title)}</h1><p class="blog-header-meta">By ${escapeHtml(author)} ${date ? '&bull; ' + date : ''}</p>`;
+    const headerHtml = `${backBtn}<p class="blog-header-title" style="text-align: center; font-size: 3em; font-weight: bold; margin: 0.67em 0;">${escapeHtml(title)}</p><p class="blog-header-meta" style="text-align: right;">By ${escapeHtml(author)} ${date ? '&bull; ' + date : ''}</p>`;
 
     const loadingDiv = container.querySelector('.loading');
     if (loadingDiv) loadingDiv.remove();
@@ -198,13 +198,13 @@ function markdownToHtml(md) {
   // Images
   md = md.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%; border-radius:8px; margin: 1rem 0;">');
 
-  // Headers (# becomes h2, ## becomes h3, etc.)
-  md = md.replace(/^######\s?(.*)$/gm, '<h6>$1</h6>');
-  md = md.replace(/^#####\s?(.*)$/gm, '<h5>$1</h5>');
-  md = md.replace(/^####\s?(.*)$/gm, '<h4>$1</h4>');
-  md = md.replace(/^###\s?(.*)$/gm, '<h3>$1</h3>');
-  md = md.replace(/^##\s?(.*)$/gm, '<h2>$1</h2>');
-  md = md.replace(/^#\s?(.*)$/gm, '<h2>$1</h2>');
+  // Headings - process from most specific to least specific
+  md = md.replace(/^######\s+(.*)$/gm, '<h6>$1</h6>');
+  md = md.replace(/^#####\s+(.*)$/gm, '<h6>$1</h6>');
+  md = md.replace(/^####\s+(.*)$/gm, '<h5>$1</h5>');
+  md = md.replace(/^###\s+(.*)$/gm, '<h4>$1</h4>');
+  md = md.replace(/^##\s+(.*)$/gm, '<h3>$1</h3>');
+  md = md.replace(/^#\s+(.*)$/gm, '<h2>$1</h2>');
 
   md = md.replace(/^---$/gm, '<hr/>');
 
