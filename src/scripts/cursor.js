@@ -1,12 +1,8 @@
-/* ---------- Custom Cursor (CSS-driven Difference Effect) ---------- */
 (function () {
-  // Only proceed if the cursor element exists
   const cursor = document.querySelector(".cursor");
+  const cursorRing = document.querySelector(".cursor-ring");
   if (!cursor) return;
 
-  const cursorRing = document.querySelector(".cursor-ring");
-
-  // Select all interactive elements: a, button, year-btn, and the specific social links
   const hoverables = document.querySelectorAll("a, button, .year-btn, .socials a");
 
   let mouseX = 0;
@@ -15,10 +11,13 @@
   let ringY = 0;
   const inertia = 0.3;
 
-  document.addEventListener("mouseenter", () => {
+  // Force visibility on load for Firefox
+  const showCursor = () => {
     cursor.classList.add("visible");
     if (cursorRing) cursorRing.classList.add("visible");
-  });
+  };
+
+  document.addEventListener("mouseenter", showCursor);
   
   document.addEventListener("mouseleave", () => {
     cursor.classList.remove("visible");
@@ -40,6 +39,11 @@
   document.addEventListener("mousemove", e => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    
+    // Ensure the cursor is visible when moving
+    if (!cursor.classList.contains("visible")) showCursor();
+
+    // Grouping the update for the main dot
     cursor.style.top = mouseY + "px";
     cursor.style.left = mouseX + "px";
   });
@@ -59,7 +63,5 @@
     requestAnimationFrame(animateRing);
   }
 
-  if (cursorRing) {
-    animateRing();
-  }
+  animateRing();
 })();

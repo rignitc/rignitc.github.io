@@ -20,7 +20,7 @@ if (header) observer.observe(header);
 const DUPLICATE_COUNT = 4;
 const ALT_TEXT = "Alumni logo";
 
-/* COMPANY LOGOS */
+/* COMPANY LOGOS */ 
 const companyImages = [
   "assets/images/companies/aws.webp",
   "assets/images/companies/Broadcom.webp",

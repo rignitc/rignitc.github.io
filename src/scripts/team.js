@@ -32,7 +32,7 @@ async function loadYear(year) {
             const card = document.createElement('div');
             card.className = "member-card";
             card.innerHTML = `
-            <img src="/${m.photo || ''}" alt="${m.name || ''}" class="member-photo">
+            <img src="${m.photo || ''}" alt="${m.name || ''}" class="member-photo">
             <div class="member-name">${m.name || ''}</div>
             <div class="member-role">${m.role || ''}</div>
             <div class="socials">

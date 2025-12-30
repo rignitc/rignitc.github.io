@@ -3,30 +3,61 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # Runs the build when pushing to your test branch
+      - main
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+    branches:
+      - main
+      - dev
 
-# Set permissions for the GITHUB_TOKEN to allow uploading and deploying
 permissions:
-  contents: read # Read permission is usually sufficient for source code
-  pages: write   # REQUIRED for deploying to GitHub Pages
-  id-token: write # REQUIRED for authenticating with the deploy action
+  contents: write
+  pages: write
+  id-token: write
+  pull-requests: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Install dependencies 📦
-        run: npm install
-
-      - name: Build Site 🏗️
-        run: npm run build
-      
-      - name: Fix HTML paths 🔧
+      - name: Install and Build 🏗️
+        if: github.event.action != 'closed'
         run: |
-          BASE_PREFIX=""
+          npm install
+          npm run build
+
+      # Dynamic Path Prefixing
+      - name: Prefix absolute paths
+        if: github.event.action != 'closed'
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+          OWNER="${GITHUB_REPOSITORY%%/*}"
+          
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # Logic for PR Previews
+            if [ "$OWNER" == "rignitc" ]; then
+              # Root-level domain PRs (rignitc.com/pr-preview/...)
+              BASE_PREFIX="/pr-preview/pr-${{ github.event.number }}"
+            else
+              # Forked repo PRs (user.github.io/repo/pr-preview/...)
+              BASE_PREFIX="/$REPO/pr-preview/pr-${{ github.event.number }}"
+            fi
+          elif [ "$OWNER" == "rignitc" ]; then
+            # Production deployment on main org (rignitc.com/)
+            BASE_PREFIX=""
+          else
+            # Deployment on a fork (user.github.io/repo/)
+            BASE_PREFIX="/$REPO"
+          fi
+          
+          echo "Correcting paths using prefix: $BASE_PREFIX"
+
+          # ---------- HTML Fixes ----------
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|=\"/assets/|=\"$BASE_PREFIX/assets/|g" \
@@ -50,18 +81,46 @@ jobs:
               "$file"
           done
 
-      - name: Upload Artifact ⬆️
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
+          # ---------- JS & Component Loader Fixes ----------
+          find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s@fetch(\"/src/data/@fetch(\"$BASE_PREFIX/src/data/@g" \
+              -e "s@fetch('/src/data/@fetch('$BASE_PREFIX/src/data/@g" \
+              -e "s|\"/src/|\"$BASE_PREFIX/src/|g" \
+              -e "s|'/src/|'$BASE_PREFIX/src/|g" \
+              -e "s|\"/assets/|\"$BASE_PREFIX/assets/|g" \
+              -e "s|'/assets/|'$BASE_PREFIX/assets/|g" \
+              "$file"
+          done
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          # ---------- CSS Fixes ----------
+          find dist -type f -name "*.css" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|url(\"/assets/|url(\"$BASE_PREFIX/assets/|g" \
+              -e "s|url('/assets/|url('$BASE_PREFIX/assets/|g" \
+              "$file"
+          done
+
+          # ---------- JSON Data Fixes ----------
+          find dist/src/data -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|assets/|/$REPO/assets/|g" \
+              -e "s|\"/activities/origo|\"$BASE_PREFIX/activities/origo|g" \
+              "$file"
+          done
+
+      - name: Deploy PR Preview 🚀
+        if: github.event_name == 'pull_request'
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./dist
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+
+      - name: Deploy Production to gh-pages 🌐
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean: false

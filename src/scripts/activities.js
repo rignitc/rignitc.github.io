@@ -12,7 +12,7 @@ async function loadActivities(type, url, containerId, emptyId) {
         data.forEach((item, idx) => {
             const card = document.createElement('article');
             card.className = 'activity-card';
-            const photoPath = item.photo || item.image ? `/${item.photo || item.image}` : '';
+            const photoPath = item.photo || item.image ? `${item.photo || item.image}` : '';
             let buttonHtml = '';
             // 1. Preferred Method: Check for 'button_text' and 'button_link' fields in your JSON data.
             // Example data item: { "title": "My Workshop", "button_text": "Register Now", "button_link": "/register.html" }

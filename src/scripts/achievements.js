@@ -105,7 +105,7 @@ function renderCompetitionCards(data, container, viewMoreBtn) {
     card.className = 'achievement-card';
     card.setAttribute('tabindex', '0');
 
-    const photoPath = item.photo ? `/${item.photo}` : '';
+    const photoPath = item.photo ? `${item.photo}` : '';
 
     card.innerHTML = `
       <div>
@@ -176,10 +176,10 @@ function renderCards(type, data, container, viewMoreBtn) {
       card = document.createElement('article');
       card.className = 'startup-card';
       card.innerHTML = `
-        <img src="/${escapeHtml(item.image)}" alt="${escapeHtml(item.title)} main image" class="startup-image">
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)} main image" class="startup-image">
         <div class="startup-info">
           <div class="startup-header">
-            ${item.logo ? `<img src="/${escapeHtml(item.logo)}" class="logo">` : ''}
+            ${item.logo ? `<img src="${escapeHtml(item.logo)}" class="logo">` : ''}
             <h2>
               ${item.link
                 ? `<a href="${escapeHtml(item.link)}" target="_blank">${escapeHtml(item.title)}</a>`
