@@ -93,18 +93,16 @@ class GithubClient {
                 const content = await this.getFileContent(indexPath);
                 const meta = this.parseFrontmatter(content) || {};
 
-                // Construct cover image URL
-                // Check dir contents for cover image - can cause rate limits with many blogs.
-                // Assuming standard naming 'cover.png' or 'cover.jpg' and public repo raw access or API download_url.
-
-                const dirContentsUrl = dir.url;
-                const dirFiles = await this.request(dirContentsUrl);
-
-                const coverFile = dirFiles.find(f => f.name.toLowerCase().startsWith('cover.'));
-
+                // Get cover image from frontmatter, or try common extensions
                 let coverUrl = null;
-                if (coverFile) {
-                    coverUrl = coverFile.download_url;
+                if (meta.cover) {
+                    // If cover is specified in frontmatter, use it
+                    coverUrl = meta.cover.startsWith('http') 
+                        ? meta.cover 
+                        : `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${dir.path}/${meta.cover}`;
+                } else {
+                    // Default to webp extension
+                    coverUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${dir.path}/cover.webp`;
                 }
 
                 return {
