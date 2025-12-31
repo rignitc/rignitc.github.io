@@ -199,12 +199,12 @@ function markdownToHtml(md) {
   md = md.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%; border-radius:8px; margin: 1rem 0;">');
 
   // Headings - process from most specific to least specific
-  md = md.replace(/^######\s+(.*)$/gm, '<h6 style="margin-bottom: 1rem;">$1</h6>');
-  md = md.replace(/^#####\s+(.*)$/gm, '<h6 style="margin-bottom: 1rem;">$1</h6>');
-  md = md.replace(/^####\s+(.*)$/gm, '<h5 style="margin-bottom: 1rem;">$1</h5>');
-  md = md.replace(/^###\s+(.*)$/gm, '<h4 style="margin-bottom: 1rem;">$1</h4>');
-  md = md.replace(/^##\s+(.*)$/gm, '<h3 style="margin-bottom: 1rem;">$1</h3>');
-  md = md.replace(/^#\s+(.*)$/gm, '<h2 style="margin-bottom: 1rem;">$1</h2>');
+  md = md.replace(/^######\s+(.*)$/gm, '<h6 style="margin-top: 2rem; margin-bottom: 1rem;">$1</h6>');
+  md = md.replace(/^#####\s+(.*)$/gm, '<h6 style="margin-top: 2rem; margin-bottom: 1rem;">$1</h6>');
+  md = md.replace(/^####\s+(.*)$/gm, '<h5 style="margin-top: 2rem; margin-bottom: 1rem;">$1</h5>');
+  md = md.replace(/^###\s+(.*)$/gm, '<h4 style="margin-top: 2rem; margin-bottom: 1rem;">$1</h4>');
+  md = md.replace(/^##\s+(.*)$/gm, '<h3 style="margin-top: 2rem; margin-bottom: 1rem;">$1</h3>');
+  md = md.replace(/^#\s+(.*)$/gm, '<h2 style="margin-top: 2rem; margin-bottom: 1rem;">$1</h2>');
 
   md = md.replace(/^---$/gm, '<hr style="margin: 2rem 0; border: none; border-top: 1px solid rgba(255,255,255,0.2);"/>');
 
