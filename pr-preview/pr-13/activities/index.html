@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>RIGNITC Activities | Workshops & Exhibitions</title>
+    <meta name="description" content="Explore RIGNITC's workshops and exhibitions. Join hands-on robotics workshops, technical sessions, and see our innovative projects showcased at exhibitions across India." />
+    <meta name="keywords" content="RIGNITC activities, robotics workshops, technical exhibitions, NIT Calicut, engineering workshops, robotics demonstrations, tech exhibitions, student activities" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="RIGNITC" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rignitc.com/activities" />
+    <meta property="og:title" content="RIGNITC Activities | Workshops & Exhibitions" />
+    <meta property="og:description" content="Explore RIGNITC's workshops and exhibitions. Join hands-on robotics workshops and see our innovative projects showcased." />
+    <meta property="og:image" content="/pr-preview/pr-13/assets/images/logog.webp" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://rignitc.com/activities" />
+    <meta property="twitter:title" content="RIGNITC Activities | Workshops & Exhibitions" />
+    <meta property="twitter:description" content="Explore RIGNITC's workshops and exhibitions. Join hands-on robotics workshops and see our innovative projects showcased." />
+    <meta property="twitter:image" content="/pr-preview/pr-13/assets/images/logog.webp" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rignitc.com/activities" />
+    
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/pr-preview/pr-13/assets/images/logog.webp" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/cursor.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/activities.css" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Libre+Caslon+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Robotics Interest Group (RIG), NIT Calicut",
+      "alternateName": "RIGNITC",
+      "url": "https://rignitc.com",
+      "logo": "https://rignitc.com/assets/images/logog.webp",
+      "description": "RIGNITC conducts workshops and exhibitions in robotics, AI, and engineering",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Calicut",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://instagram.com/rig_nitc",
+        "https://linkedin.com/company/rig-nitc"
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <main>
+      <!-- Workshops -->
+      <section class="hero" aria-labelledby="workshop-head">
+        <div class="left">
+          <h1 id="workshop-head">Workshops</h1>
+          <p class="tagline">We learn, we share, we grow together</p>
+        </div>
+      </section>
+      <div id="workshops" aria-live="polite">
+        <div class="empty" id="workshops-empty" style="display: none">
+          No workshops found.
+        </div>
+      </div>
+      <!-- Exhibitions -->
+      <section class="hero" aria-labelledby="exhib-head">
+        <div class="left">
+          <h2 id="exhib-head">Exhibitions</h2>
+          <p class="tagline">Showcasing our innovations to the world</p>
+        </div>
+      </section>
+      <div id="exhibitions" aria-live="polite">
+        <div class="empty" id="exhibitions-empty" style="display: none">
+          No exhibitions found.
+        </div>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+    <script src="/pr-preview/pr-13/src/scripts/cursor.js"></script>
+    <script src="/pr-preview/pr-13/src/scripts/mobile-navbar.js"></script>
+    <script src="/pr-preview/pr-13/src/scripts/componentLoader.js"></script>
+    <script>
+      loadComponent("navbar-placeholder", "/pr-preview/pr-13/src/components/navbar.html");
+      loadComponent("footer-placeholder", "/pr-preview/pr-13/src/components/footer.html");
+    </script>
+    <script src="/pr-preview/pr-13/src/scripts/activities.js"></script>
+  </body>
+</html>

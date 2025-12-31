@@ -1,0 +1,211 @@
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --fg-opa: rgba(255, 255, 255, 0.08);
+  --max-width: 1100px;
+  --radius: 14px;
+  --gap: 22px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Inter", sans-serif;
+  line-height: 1.4;
+  padding-bottom: 80px;
+}
+main {
+  max-width: var(--max-width);
+  margin: 120px auto 80px;
+  padding: 0 22px;
+}
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 18px;
+  position: relative;
+}
+h1:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0.01);
+  bottom: -8px;
+  width: 140px;
+  height: 2px;
+  background: var(--fg);
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+  transform-origin: center;
+}
+h1:hover:after {
+  transform: translateX(-50%) scaleX(1);
+}
+.year-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0 40px;
+}
+.year-btn {
+  background: transparent;
+  border: 1px solid var(--fg-opa);
+  color: var(--fg);
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.25s;
+  font-weight: 600;
+}
+.year-btn.active,
+.year-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gap);
+}
+
+/* ===== Minimal & Premium Member Card with Horizontal Icons ===== */
+.member-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 24px 16px;
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.member-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
+}
+.member-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translate(-100%, -100%) rotate(45deg);
+  transition: transform 0.8s ease-out;
+  pointer-events: none;
+}
+.member-card:hover::after {
+  transform: translate(100%, 100%) rotate(45deg);
+}
+.member-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  margin-bottom: 14px;
+}
+.member-name {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  position: relative;
+  margin-bottom: 6px;
+}
+.member-name::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 6px auto 0;
+}
+.member-role {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+/* Flex container for horizontal social icons */
+.socials {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.socials a {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--fg);
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+}
+.socials a:hover {
+  background: var(--fg);
+  color: var(--bg);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+.socials svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+/* End of premium card and socials layout */
+
+@font-face {
+  font-family: "Neue Machina";
+  src: url("/pr-preview/pr-13/assets/fonts/Neue Machina Bl.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Neue Machina", sans-serif !important;
+  font-size: 5em;
+}
+
+/* Mobile optimization */
+@media only screen and (max-width: 768px) {
+  main {
+    padding-left: 10px; /* push content slightly to the left */
+    padding-right: 10px; /* optional to avoid clipping */
+  }
+
+  .year-switcher {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0 40px;
+  }
+
+  .year-btn {
+    flex: 0 0 auto; /* keep button size consistent */
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* one column only for small screens */
+    gap: 10px;
+  }
+}

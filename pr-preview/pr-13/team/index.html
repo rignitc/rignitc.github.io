@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>RIGNITC | Team</title>
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/fonts.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/pr-preview/pr-13/assets/images/logog.webp" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/cursor.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/team.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="navbar-placeholder"></div>
+    <main>
+      <h1>TEAM</h1>
+      <div class="year-switcher" id="year-switcher">
+        <button class="year-btn" data-year="founders">FOUNDERS</button>
+        <button class="year-btn" data-year="b12">B12</button>
+        <button class="year-btn" data-year="b13">B13</button>
+        <button class="year-btn" data-year="b14">B14</button>
+        <button class="year-btn" data-year="b15">B15</button>
+        <button class="year-btn" data-year="b16">B16</button>
+        <button class="year-btn" data-year="b17">B17</button>
+        <button class="year-btn" data-year="b18">B18</button>
+        <button class="year-btn" data-year="b19">B19</button>
+        <button class="year-btn" data-year="b20">B20</button>
+        <button class="year-btn" data-year="b21">B21</button>
+        <button class="year-btn" data-year="b22">B22</button>
+        <button class="year-btn" data-year="b23">B23</button>
+        <button class="year-btn" data-year="b24">B24</button>
+        <button class="year-btn" data-year="webdev">DEV</button>
+      </div>
+      <div class="team-grid" id="team-grid"></div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+    <script src="/pr-preview/pr-13/src/scripts/cursor.js"></script>
+    <script src="/pr-preview/pr-13/src/scripts/mobile-navbar.js"></script>
+    <script src="/pr-preview/pr-13/src/scripts/componentLoader.js"></script>
+
+    <script>
+      loadComponent("navbar-placeholder", "/pr-preview/pr-13/src/components/navbar.html");
+      loadComponent("footer-placeholder", "/pr-preview/pr-13/src/components/footer.html");
+    </script>
+    <script src="/pr-preview/pr-13/src/scripts/team.js"></script>
+  </body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="google-site-verification"
+      content="egNQUefR6KkaBjS5mn4bl_yncx1GNncswQOhK4S36cI"
+    />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JJEWZN4WSN"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-JJEWZN4WSN");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>RIGNITC | Robotics Interest Group</title>
+
+    <meta
+      name="description"
+      content="The official website for RIGNITC (Robotics Interest Group at NIT Calicut). Explore our cutting-edge robotics projects, research, technical workshops, and alumni network in Mechatronics and Automation."
+    />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Existing Google Fonts (UNCHANGED) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome (UNCHANGED) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="assets/images/logog.webp" />
+
+    <!-- Existing Stylesheets (UNCHANGED) -->
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/footer.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/cursor.css" />
+
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/main_gallery.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/main_body.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/main_alumni.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/main_projects.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/main_about.css" />
+    <link rel="stylesheet" href="/pr-preview/pr-13/src/styles/main_hero.css" />
+  </head>
+
+  <div id="navbar-placeholder"></div>
+
+  <body>
+    <main>
+    <div
+      class="hero"
+      style="
+        position: relative;
+        background: black;
+        color: white;
+        overflow: hidden;
+      "
+    >
+      <img
+        id="labImage"
+        src="assets/images/lab-ol-h1.webp"
+        alt="lab background"
+        class="lab-bg"
+        style="
+          position: absolute;
+          top: 55%;
+          left: 33%;
+          width: 60%;
+          height: 100%;
+          object-fit: contain;
+          transform: translate(-50%, -60%);
+          filter: invert(1) contrast(1) brightness(1);
+          mix-blend-mode: screen;
+          opacity: 0.6;
+          z-index: 0;
+        "
+      />
+
+      <div
+        class="text-block"
+        style="
+          position: relative;
+          z-index: 1;
+          margin-top: 40px;
+          transform: translateY(80px);
+        "
+      >
+        <div class="title">RIGNITC</div>
+
+        <span class="subtitle"> Robotics Interest Group </span>
+      </div>
+      <img
+        id="slideshow"
+        alt="slideshow"
+        style="position: relative; z-index: 1"
+      />
+    </div>
+
+    <script>
+      const pics = [
+        "assets/images/lab-ol-h1.webp",
+        "assets/images/lab-ol-h2.webp"
+      ];
+
+      let index = 0;
+      const img = document.getElementById("labImage");
+
+      setInterval(() => {
+        index = (index + 1) % pics.length;
+        img.src = pics[index];
+      }, 1000);
+    </script>
+
+
+    <section id="about">
+      <div class="about-container">
+        <div class="about-text">
+          <h1>Who Are We?</h1>
+          <p>
+            The Robotics Interest Group (RIG) was founded out of a passion for
+            robotics, aiming to foster learning and research in areas like
+            Mechatronics, Intelligent Systems, and Automation. We focus on
+            gaining hands-on experience and knowledge to keep pace with evolving
+            technologies, support industry innovation, and contribute to
+            developing practical, commercially viable solutions.
+          </p>
+
+          <p>
+            Join us to explore the world of robotics, collaborate on exciting
+            projects, and push the boundaries of technology.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-number" data-target="30">0</div>
+              <div class="stat-label">Technical Workshops</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" data-target="15">0</div>
+              <div class="stat-label">Research Publications</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" data-target="5">0</div>
+              <div class="stat-label">Industry Grade Projects</div>
+            </div>
+          </div>
+
+          <a href="/pr-preview/pr-13/about/" class="about-link"
+            >Know More<span>↗</span></a
+          >
+        </div>
+
+        <div class="about-image">
+          <div class="card-wrap" id="cardWrap">
+            <div class="card-shadow" id="cardShadow"></div>
+            <div class="card" id="card">
+              <div class="card-overlay">
+                <h2>RIGNITC</h2>
+                <p>B21s B22s @ORIGO23</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="/pr-preview/pr-13/src/scripts/main_about.js"></script>
+    </section>
+
+<!-- In your homepage's featured projects section -->
+<section id="projects">
+  <div class="projects-container">
+    <h1 class="projects-header">Featured Projects</h1>
+    
+    <div class="projects-grid">
+      <!-- This will be populated by JavaScript -->
+      <!-- Fallback content for SEO and no-JS users -->
+      <noscript>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/pr-preview/pr-13/assets/images/projects/riggu-realH.webp" alt="RIGGU Robot" class="default-img" />
+          </div>
+          <div class="project-content">
+            <h2><strong>RIGGU</strong></h2>
+            <p>Semi Humanoid Robot designed for interactive robotics demonstrations.</p>
+            <a href="/pr-preview/pr-13/projects/#riggu" class="project-link">View Project ↗</a>
+          </div>
+        </div>
+      </noscript>
+    </div>
+
+        <div class="view-all">
+          <a href="/pr-preview/pr-13/projects/">View All Projects ↗</a>
+        </div>
+      </div>
+      <script src="/pr-preview/pr-13/src/scripts/main_projects.js"></script>
+    </section>
+
+  <section id="people">
+    <div class="people-header">We Have Alumni in</div>
+
+    <div class="slider-wrapper">
+      <div class="company-slider" id="companySlider"></div>
+    </div>
+
+    <div class="slider-wrapper">
+      <div class="company-slider" id="universitySlider"></div>
+    </div>
+
+    <div class="startup-header">Startups from our Lab</div>
+    <div class="startup-grid" id="startupGrid"></div>
+
+    <script src="/pr-preview/pr-13/src/scripts/main_alumni.js"></script>
+  </section>
+
+
+
+    <section id="gallery">
+      <h1>Gallery</h1>
+      <div class="polaroid-stage" id="polaroidStage"></div>
+
+      <div class="gallery-controls">
+        <button id="shuffle" title="Shuffle">
+          <i class="fas fa-random"></i>
+        </button>
+        <button id="spread" title="Spread">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </button>
+        <button id="gather" title="Gather">
+          <i class="fas fa-compress-arrows-alt"></i>
+        </button>
+        <button id="arrange" title="Arrange"><i class="fas fa-th"></i></button>
+        <button id="help" title="Help"><i class="fas fa-question"></i></button>
+      </div>
+
+      <div class="lightbox" id="lightbox">
+        <img src="" alt="Expanded view" />
+      </div>
+      <script src="/pr-preview/pr-13/src/scripts/main_gallery.js"></script>
+    </section>
+    </main> <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+    <script src="/pr-preview/pr-13/src/scripts/main_slideshow.js"></script>
+    <script src="/pr-preview/pr-13/src/scripts/cursor.js"></script>
+    <script src="/pr-preview/pr-13/src/scripts/mobile-navbar.js"></script>
+    <script src="/pr-preview/pr-13/src/scripts/componentLoader.js"></script>
+
+    <script>
+      loadComponent("navbar-placeholder", "/pr-preview/pr-13/src/components/navbar.html");
+      loadComponent("footer-placeholder", "/pr-preview/pr-13/src/components/footer.html");
+    </script>
+  </body>
+</html>
