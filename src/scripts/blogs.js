@@ -150,7 +150,7 @@ async function loadBlogPost(container, blogId) {
     // Back Button (with block display for new line)
     const backBtn = '<a href="?" style="display: block; margin-bottom: 20px; color: var(--fg); text-decoration: none; font-weight: bold;">&larr; Back to Blogs</a>';
 
-    const headerHtml = `${backBtn}<p class="blog-header-title" style="text-align: center; font-size: 3em; font-weight: bold; margin: 0.67em 0;">${escapeHtml(title)}</p><p class="blog-header-meta" style="text-align: right;">By ${escapeHtml(author)} ${date ? '&bull; ' + date : ''}</p>`;
+    const headerHtml = `${backBtn}<p class="blog-header-title" style="text-align: center; font-size: 3em; font-weight: bold; margin: 0.67em 0;">${escapeHtml(title)}</p><p class="blog-header-meta" style="text-align: right; margin-top: -10px; margin-bottom: 40px;">By ${escapeHtml(author)} ${date ? '&bull; ' + date : ''}</p>`;
 
     const loadingDiv = container.querySelector('.loading');
     if (loadingDiv) loadingDiv.remove();
