@@ -206,7 +206,7 @@ function markdownToHtml(md) {
   md = md.replace(/^##\s+(.*)$/gm, '<h3 style="margin-bottom: 1rem;">$1</h3>');
   md = md.replace(/^#\s+(.*)$/gm, '<h2 style="margin-bottom: 1rem;">$1</h2>');
 
-  md = md.replace(/^---$/gm, '<hr/>');
+  md = md.replace(/^---$/gm, '<hr style="margin: 2rem 0; border: none; border-top: 1px solid rgba(255,255,255,0.2);"/>');
 
   md = md.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
   md = md.replace(/`([^`]+)`/g, '<code>$1</code>');
