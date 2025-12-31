@@ -66,9 +66,9 @@ function getSlugFromURL() {
 // Check for cover image
 async function checkCoverImage(slug) {
   try {
-    const resp = await fetch(`/content/${slug}/imgs/cover.webp`, { method: "HEAD" });
+    const resp = await fetch('/content/${slug}/imgs/cover.webp', { method: "HEAD" });
     if (resp.ok) {
-      return `/content/${slug}/imgs/cover.webp`;
+      return '/content/${slug}/imgs/cover.webp';
     }
   } catch (err) {
     // Ignore errors
@@ -79,7 +79,7 @@ async function checkCoverImage(slug) {
 // Load markdown content
 async function loadMarkdownContent(slug) {
   try {
-    const resp = await fetch(`/content/${slug}/index.md`, { cache: "no-cache" });
+    const resp = await fetch('/content/${slug}/index.md', { cache: "no-cache" });
     if (!resp.ok) throw new Error(`Failed to load content for ${slug}`);
     return await resp.text();
   } catch (err) {
@@ -96,7 +96,7 @@ function processImagePaths(markdown, slug) {
       if (src.startsWith("http://") || src.startsWith("https://") || src.startsWith("/")) {
         return match;
       }
-      return `![${alt}](/content/${slug}/${src})`;
+      return '![${alt}](/content/${slug}/${src})';
     }
   );
 }
