@@ -57,7 +57,7 @@ async function loadBlogPosts() {
     empty.style.display = "none";
 
     // Load list of post slugs
-    const slugsResp = await fetch("/src/data/blog/slugs.json", { cache: "no-cache" });
+    const slugsResp = await fetch("/src/data/blogs/slugs.json", { cache: "no-cache" });
     if (!slugsResp.ok) throw new Error("Failed to load slugs");
     const slugs = await slugsResp.json();
 
@@ -65,7 +65,7 @@ async function loadBlogPosts() {
     const posts = await Promise.all(
       slugs.map(async (slug) => {
         try {
-          const resp = await fetch('/content/${slug}/index.md', { cache: "no-cache" });
+          const resp = await fetch(`/content/${slug}/index.md`, { cache: "no-cache" });
           if (!resp.ok) return null;
           const markdown = await resp.text();
           const { frontMatter } = parseFrontMatter(markdown);
@@ -110,9 +110,9 @@ async function loadBlogPosts() {
 
 async function checkCoverImage(slug) {
   try {
-    const resp = await fetch('/content/${slug}/imgs/cover.webp', { method: "HEAD" });
+    const resp = await fetch(`/content/${slug}/imgs/cover.webp`, { method: "HEAD" });
     if (resp.ok) {
-      return '/content/${slug}/imgs/cover.webp';
+      return `/content/${slug}/imgs/cover.webp`;
     }
   } catch (err) {
     // Ignore errors
