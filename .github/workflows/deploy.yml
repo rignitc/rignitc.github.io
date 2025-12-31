@@ -94,6 +94,7 @@ jobs:
               -e "s|\"/content/|\"$BASE_PREFIX/content/|g" \
               -e "s|'/content/|'$BASE_PREFIX/content/|g" \
               -e "s|\`/content/|\`$BASE_PREFIX/content/|g" \
+              -e 's|/content/|\$BASE_PREFIX/content/|g' \
               -e "s|'/blog/|'$BASE_PREFIX/blog/|g" \
               -e "s|\"/blog/|\"$BASE_PREFIX/blog/|g" \
               -e "s|\`/blog/|\`$BASE_PREFIX/blog/|g" \
