@@ -61,6 +61,8 @@ jobs:
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|=\"/assets/|=\"$BASE_PREFIX/assets/|g" \
+              -e "s|=\"/content/|=\"$BASE_PREFIX/content/|g" \
+              -e "s|=\"/blog/|=\"$BASE_PREFIX/blog/|g" \
               -e "s|=\"/src/|=\"$BASE_PREFIX/src/|g" \
               -e "s|=\"/\"|=\"$BASE_PREFIX/\"|g" \
               -e "s|\"/src/components/|\"$BASE_PREFIX/src/components/|g" \
