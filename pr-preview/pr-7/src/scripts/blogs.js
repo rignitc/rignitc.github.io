@@ -122,7 +122,7 @@ async function loadBlogPost(container, blogId) {
     const rawText = await window.githubClient.getFileContent(blogId);
 
     // Parse frontmatter
-    const frontmatterRegex = /^---\s*([\s\S]*?)\s*---/;
+    const frontmatterRegex = /^---\n\s*([\s\S]*?)\s*\n---/;
     let meta = {};
     let contentV = rawText;
 
