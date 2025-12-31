@@ -3,7 +3,7 @@ slug: baking-a-pie
 title: Baking a Pi
 date: 2024-02-20
 summary: Baking a Pie
-author: RIGNITC Team
+author: Senthilnathan P L
 category: Tutorial
 tags: [raspberry-pi, tutorial, hardware]
 ---
