@@ -199,12 +199,12 @@ function markdownToHtml(md) {
   md = md.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%; border-radius:8px; margin: 1rem 0;">');
 
   // Headings - process from most specific to least specific
-  md = md.replace(/^######\s+(.*)$/gm, '<h6>$1</h6>');
-  md = md.replace(/^#####\s+(.*)$/gm, '<h6>$1</h6>');
-  md = md.replace(/^####\s+(.*)$/gm, '<h5>$1</h5>');
-  md = md.replace(/^###\s+(.*)$/gm, '<h4>$1</h4>');
-  md = md.replace(/^##\s+(.*)$/gm, '<h3>$1</h3>');
-  md = md.replace(/^#\s+(.*)$/gm, '<h2>$1</h2>');
+  md = md.replace(/^######\s+(.*)$/gm, '<h6 style="margin-bottom: 1rem;">$1</h6>');
+  md = md.replace(/^#####\s+(.*)$/gm, '<h6 style="margin-bottom: 1rem;">$1</h6>');
+  md = md.replace(/^####\s+(.*)$/gm, '<h5 style="margin-bottom: 1rem;">$1</h5>');
+  md = md.replace(/^###\s+(.*)$/gm, '<h4 style="margin-bottom: 1rem;">$1</h4>');
+  md = md.replace(/^##\s+(.*)$/gm, '<h3 style="margin-bottom: 1rem;">$1</h3>');
+  md = md.replace(/^#\s+(.*)$/gm, '<h2 style="margin-bottom: 1rem;">$1</h2>');
 
   md = md.replace(/^---$/gm, '<hr/>');
 
@@ -222,7 +222,9 @@ function markdownToHtml(md) {
   const htmlParts = parts.map(p => {
     if (/^<(h[1-6]|ul|pre|blockquote|hr|ol|img)/.test(p)) return p;
     if (p.includes('<li>')) return p;
-    return '<p>' + p.replace(/\n/g, '<br/>') + '</p>';
+    // Preserve line breaks within paragraphs - convert single \n to <br/>
+    const withLineBreaks = p.split('\n').map(line => line.trim()).filter(Boolean).join('<br/>');
+    return '<p style="margin-bottom: 1.5rem; line-height: 1.6;">' + withLineBreaks + '</p>';
   });
 
   let html = htmlParts.join('\n');
