@@ -4,7 +4,7 @@
   "description": "Website project.",
   "main": "index.html",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "copy:root": "cpx \"{404.html,CNAME,robots.txt,sitemap.xml,index.html}\" dist",
     "copy:assets": "cpx \"assets/**/*\" dist/assets",
     "copy:pages": "cpx \"src/pages/**/*\" dist/src/pages",
