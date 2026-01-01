@@ -5,6 +5,9 @@
  */
 
 // Front matter parser (inline)
+// Declare closeTOCModal in outer scope so it can be accessed
+let closeTOCModal = () => {};
+
 function parseFrontMatter(markdown) {
   const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
   const match = markdown.match(frontMatterRegex);
@@ -102,6 +105,7 @@ function processImagePaths(markdown, slug) {
 }
 
 // Generate Table of Contents from headings
+// Generate Table of Contents from headings
 function generateTOC(contentElement) {
   const headings = contentElement.querySelectorAll("h1, h2, h3, h4, h5, h6");
   const tocList = document.getElementById("toc-list");
@@ -144,9 +148,134 @@ function generateTOC(contentElement) {
       e.preventDefault();
       heading.scrollIntoView({ behavior: "smooth", block: "start" });
       window.history.pushState(null, "", `#${id}`);
+      // Close modal on mobile after clicking
+      closeTOCModal();
     });
     li.appendChild(a);
     currentList.appendChild(li);
+  });
+
+  // Setup mobile TOC FAB and modal
+  setupMobileTOC();
+}
+
+// Setup mobile TOC FAB and modal
+// Setup mobile TOC FAB and modal
+function setupMobileTOC() {
+  const tocSidebar = document.getElementById("toc-sidebar");
+  if (!tocSidebar) return;
+
+  // Create FAB
+  const fab = document.createElement("button");
+  fab.className = "toc-fab";
+  fab.setAttribute("aria-label", "Open table of contents");
+  fab.innerHTML = "☰";
+  document.body.appendChild(fab);
+
+  // Create overlay and modal
+  const overlay = document.createElement("div");
+  overlay.className = "toc-overlay";
+  
+  const modal = document.createElement("div");
+  modal.className = "toc-modal";
+  
+  const modalHeader = document.createElement("div");
+  modalHeader.className = "toc-modal-header";
+  
+  const headerTitle = document.createElement("div");
+  headerTitle.className = "toc-header";
+  headerTitle.textContent = "Contents";
+  
+  const closeBtn = document.createElement("button");
+  closeBtn.className = "toc-close-btn";
+  closeBtn.setAttribute("aria-label", "Close table of contents");
+  closeBtn.innerHTML = "×";
+  
+  modalHeader.appendChild(headerTitle);
+  modalHeader.appendChild(closeBtn);
+  
+  // Clone TOC list for modal
+  const tocList = document.getElementById("toc-list");
+  const modalTocList = tocList.cloneNode(true);
+  modalTocList.id = "toc-list-modal";
+  
+  modal.appendChild(modalHeader);
+  modal.appendChild(modalTocList);
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  // Open modal
+  function openTOCModal() {
+    overlay.classList.add("active");
+    fab.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  // Close modal
+  closeTOCModal = function() {
+    overlay.classList.remove("active");
+    fab.classList.remove("active");
+    document.body.style.overflow = "";
+  };
+
+  // Event listeners
+  fab.addEventListener("click", openTOCModal);
+  closeBtn.addEventListener("click", closeTOCModal);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      closeTOCModal();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("active")) {
+      closeTOCModal();
+    }
+  });
+
+  // Update active state in modal TOC as well
+  const modalTocLinks = modalTocList.querySelectorAll("a");
+  const originalTocLinks = tocList.querySelectorAll("a");
+  
+  // Add click handlers to modal TOC links to auto-close on mobile
+  modalTocLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const href = link.getAttribute("href");
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", href);
+        // Auto-close the modal after clicking (only on mobile)
+        closeTOCModal();
+      }
+    });
+  });
+  
+  // Sync active states
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        originalTocLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${id}`) {
+            link.classList.add("active");
+          }
+        });
+        modalTocLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${id}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-100px 0px -66% 0px', threshold: 0 });
+
+  document.querySelectorAll("#blog-post-content .markdown-body h1, #blog-post-content .markdown-body h2, #blog-post-content .markdown-body h3").forEach(heading => {
+    observer.observe(heading);
   });
 }
 
@@ -157,33 +286,53 @@ function setupTOCScrollSync() {
 
   if (headings.length === 0 || tocLinks.length === 0) return;
 
-  // Create IntersectionObserver
   const observerOptions = {
     root: null,
-    rootMargin: '-100px 0px -66% 0px', // Trigger when heading is near top
-    threshold: 0,
+    rootMargin: '-10% 0px -80% 0px',
+    threshold: 0
   };
 
   const observer = new IntersectionObserver((entries) => {
+    const isDesktop = window.innerWidth > 1200; // Check against your CSS breakpoint
+
     entries.forEach((entry) => {
-      const id = entry.target.id;
-      const tocLink = Array.from(tocLinks).find(link => link.getAttribute('href') === `#${id}`);
-      
       if (entry.isIntersecting) {
-        // Remove active from all links
-        tocLinks.forEach(link => link.classList.remove('active'));
-        // Add active to current link
-        if (tocLink) {
-          tocLink.classList.add('active');
-        }
+        const id = entry.target.id;
+        
+        tocLinks.forEach(link => {
+          const parentLi = link.parentElement;
+          link.classList.remove('active');
+          
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+            
+            // Only affect expansion on Desktop
+            if (isDesktop) {
+              const nextElement = link.nextElementSibling;
+              if (nextElement && nextElement.tagName === 'UL') {
+                nextElement.classList.add('expanded');
+              }
+
+              let parent = parentLi.parentElement;
+              while (parent && parent.id !== 'toc-list') {
+                if (parent.tagName === 'UL') parent.classList.add('expanded');
+                parent = parent.parentElement;
+              }
+            }
+          } else if (isDesktop) {
+            // Collapse non-active menus only on Desktop
+            const nextElement = link.nextElementSibling;
+            const isActiveChild = parentLi.querySelector('a.active');
+            if (nextElement && nextElement.tagName === 'UL' && !isActiveChild) {
+              nextElement.classList.remove('expanded');
+            }
+          }
+        });
       }
     });
   }, observerOptions);
 
-  // Observe all headings
-  headings.forEach(heading => {
-    observer.observe(heading);
-  });
+  headings.forEach(heading => observer.observe(heading));
 }
 
 // Setup reading progress bar
@@ -239,10 +388,18 @@ if (typeof marked !== "undefined") {
   const originalCode = renderer.code.bind(renderer);
 
   renderer.code = function (code, language) {
+    const codeId = `code-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    // Escape HTML in code (simple escape function)
+    const escapedCode = code
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
     if (language) {
-      return `<pre><code class="language-${language}">${code}</code></pre>`;
+      return `<pre class="code-block-wrapper"><code class="language-${language}" id="${codeId}">${escapedCode}</code><button class="code-copy-btn" data-code-id="${codeId}" aria-label="Copy code"><span class="copy-icon">📋</span><span class="copied-text">Copied!</span></button></pre>`;
     }
-    return originalCode(code, language);
+    return `<pre class="code-block-wrapper"><code id="${codeId}">${escapedCode}</code><button class="code-copy-btn" data-code-id="${codeId}" aria-label="Copy code"><span class="copy-icon">📋</span><span class="copied-text">Copied!</span></button></pre>`;
   };
 
   // Custom renderer for admonitions (Note, Warning, Error)
@@ -307,17 +464,6 @@ async function renderPost() {
     metaDesc.content = frontMatter.summary || title;
   }
 
-  // Set cover image as hero background if available
-  if (coverImage) {
-    const heroSection = document.querySelector('.blog-post-content');
-    if (heroSection) {
-      heroSection.style.backgroundImage = `url(${coverImage})`;
-      heroSection.style.backgroundSize = 'cover';
-      heroSection.style.backgroundPosition = 'center';
-      heroSection.classList.add('has-cover');
-    }
-  }
-
   // Process image paths
   const processedMarkdown = processImagePaths(markdownContent, slug);
 
@@ -363,12 +509,15 @@ async function renderPost() {
   const contentEl = document.getElementById("blog-post-content");
   contentEl.innerHTML = postHTML;
 
-  // Highlight code blocks
+  // Highlight code blocks and setup copy buttons
   if (typeof hljs !== "undefined") {
     contentEl.querySelectorAll("pre code").forEach((block) => {
       hljs.highlightElement(block);
     });
   }
+
+  // Setup copy buttons for code blocks
+  setupCodeCopyButtons(contentEl);
 
   // Render math with KaTeX
   if (typeof renderMathInElement !== "undefined") {
@@ -391,6 +540,183 @@ async function renderPost() {
 
   // Setup reading progress bar
   setupReadingProgress();
+
+  // Setup back to top button
+  setupBackToTop();
+}
+
+// Setup code copy buttons
+function setupCodeCopyButtons(container) {
+  const copyButtons = container.querySelectorAll('.code-copy-btn');
+  
+  copyButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+      const codeId = button.getAttribute('data-code-id');
+      const codeElement = document.getElementById(codeId);
+      if (!codeElement) return;
+
+      const codeText = codeElement.textContent || codeElement.innerText;
+      
+      try {
+        await navigator.clipboard.writeText(codeText);
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.classList.remove('copied');
+        }, 2000);
+      } catch (err) {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = codeText;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy code:', err);
+        }
+        document.body.removeChild(textArea);
+      }
+    });
+  });
+}
+
+// Setup back to top button with progress indicator
+function setupBackToTop() {
+  // Check if button already exists
+  if (document.querySelector('.back-to-top-btn')) {
+    return;
+  }
+
+  // Create the button with progress SVG
+  const backToTopBtn = document.createElement('button');
+  backToTopBtn.className = 'back-to-top-btn';
+  backToTopBtn.setAttribute('aria-label', 'Back to top');
+  backToTopBtn.setAttribute('tabindex', '-1');
+  backToTopBtn.innerHTML = `
+    <svg class="back-to-top-progress" width="50" height="50" viewBox="0 0 50 50">
+      <circle class="back-to-top-progress-bg" cx="25" cy="25" r="22" 
+              fill="none" stroke="rgba(255, 255, 255, 0.1)" 
+              stroke-width="2"/>
+      <circle class="back-to-top-progress-fill" cx="25" cy="25" r="22" 
+              fill="none" stroke="var(--accent)" stroke-width="2" 
+              stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="138.23"/>
+    </svg>
+    <span class="back-to-top-icon">↑</span>
+  `;
+  
+  document.body.appendChild(backToTopBtn);
+
+  // Calculate total scrollable height
+  function getMaxScrollHeight() {
+    // Use the larger of the two to ensure we get the actual content height
+    const scrollHeight = Math.max(
+      document.body.scrollHeight, 
+      document.documentElement.scrollHeight
+    );
+    return scrollHeight - window.innerHeight;
+  }
+
+  // Update progress circle based on scroll
+  function updateProgressCircle() {
+    const maxScroll = getMaxScrollHeight();
+    if (maxScroll <= 0) return;
+    
+    const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
+    const progressFill = backToTopBtn.querySelector('.back-to-top-progress-fill');
+    
+    if (progressFill) {
+      const circumference = 2 * Math.PI * 22; // r=22
+      const offset = circumference - (scrollProgress * circumference);
+      progressFill.style.strokeDashoffset = offset;
+    }
+  }
+
+  // Show/hide based on scroll position
+  function toggleBackToTop() {
+    const shouldShow = window.scrollY > 300;
+    
+    if (shouldShow && !backToTopBtn.classList.contains('visible')) {
+      backToTopBtn.classList.add('visible');
+      backToTopBtn.setAttribute('tabindex', '0');
+    } else if (!shouldShow && backToTopBtn.classList.contains('visible')) {
+      backToTopBtn.classList.remove('visible');
+      backToTopBtn.setAttribute('tabindex', '-1');
+    }
+  }
+
+  // Smooth scroll to top with easing
+  function scrollToTop() {
+    const startPosition = window.scrollY;
+    const duration = 600;
+    const startTime = performance.now();
+    
+    function animateScroll(currentTime) {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+      
+      // Easing function (easeInOutCubic)
+      const easeProgress = progress < 0.5 
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+      
+      window.scrollTo(0, startPosition * (1 - easeProgress));
+      
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        // Scroll complete, focus on post title for accessibility
+        const postTitle = document.querySelector('.post-title');
+        if (postTitle) {
+          postTitle.setAttribute('tabindex', '-1');
+          postTitle.focus();
+          setTimeout(() => postTitle.removeAttribute('tabindex'), 1000);
+        }
+      }
+    }
+    
+    requestAnimationFrame(animateScroll);
+  }
+
+  // Event listeners
+  backToTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    scrollToTop();
+  });
+
+  // Keyboard support
+  backToTopBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToTop();
+    }
+  });
+
+  // Update on scroll
+  function handleScroll() {
+    toggleBackToTop();
+    updateProgressCircle();
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  
+  // Initial state
+  toggleBackToTop();
+  updateProgressCircle();
+
+  // Handle resize to recalculate max scroll
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updateProgressCircle();
+    }, 100);
+  });
 }
 
 function escapeHtml(str = "") {
@@ -402,9 +728,13 @@ function escapeHtml(str = "") {
     .replaceAll("'", "&#39;");
 }
 
-// Initialize when DOM is ready
+// Change this part at the end of your blog-post.js
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", renderPost);
+  document.addEventListener("DOMContentLoaded", () => {
+    renderPost();        // Logic for content
+    setupBackToTop();   // Logic for button (now independent)
+  });
 } else {
   renderPost();
+  setupBackToTop();
 }

@@ -119,56 +119,44 @@ h1:hover:after {
     rgba(255, 255, 255, 0.02),
     transparent 50%
   );
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius);
   position: relative;
   overflow: hidden;
-  min-height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
-    box-shadow 0.28s ease, background 0.28s ease;
+    box-shadow 0.28s ease, border-color 0.28s ease;
   transform-origin: center;
   isolation: isolate;
   opacity: 0;
   transform: translateY(10px) scale(0.995);
   text-decoration: none;
   color: inherit;
+  aspect-ratio: 4 / 5;
 }
 
-.blog-card.has-cover {
-  min-height: 300px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.blog-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  flex-shrink: 0;
 }
 
-.blog-card.has-cover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-  z-index: 1;
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .blog-card-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-
-.blog-card.has-cover .blog-card-content {
-  position: relative;
-  z-index: 2;
+  padding: 20px;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .blog-card.show {
@@ -191,17 +179,37 @@ h1:hover:after {
 .blog-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 30px 60px rgba(255, 255, 255, 0.03);
-  background: var(--fg);
-  color: var(--bg);
+  border-color: var(--accent);
 }
 
-.blog-card:hover .blog-title,
-.blog-card:hover .blog-date {
-  color: var(--bg);
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.05);
 }
 
-.blog-card:hover .blog-excerpt {
-  color: rgba(0, 0, 0, 0.75);
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.05);
+}
+
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .blog-category {

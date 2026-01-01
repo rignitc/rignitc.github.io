@@ -98,4 +98,3 @@ A well-tuned PID controller is the difference between a jerky, "blocky" robot an
 
 *Stay tuned for our next post on LQR (Linear Quadratic Regulator) control!*
 
-```
