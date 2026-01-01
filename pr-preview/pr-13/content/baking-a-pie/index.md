@@ -2,7 +2,7 @@
 slug: baking-a-pie
 title: Baking a Pi
 date: 2024-02-20
-summary: Baking a Pie
+summary: A beginner-friendly guide to flashing and setting up a Raspberry Pi using the official Raspberry Pi Imager.
 author: Senthilnathan P L
 category: Tutorial
 tags: [raspberry-pi, tutorial, hardware]
