@@ -2,9 +2,10 @@
   --bg: #000;
   --fg: #fff;
   --fg-opa: rgba(255, 255, 255, 1);
-  --max-width: 1100px;
+  /* Increased max-width to accommodate wider cards */
+  --max-width: 1200px; 
   --radius: 14px;
-  --gap: 22px;
+  --gap: 24px;
 }
 
 * {
@@ -108,7 +109,8 @@ h1:hover:after {
 
 .blog-posts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Increased min-width of columns for better text flow */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--gap);
   margin-top: 12px;
 }
@@ -133,12 +135,13 @@ h1:hover:after {
   transform: translateY(10px) scale(0.995);
   text-decoration: none;
   color: inherit;
-  aspect-ratio: 4 / 5;
+  /* REMOVED: aspect-ratio: 4 / 5; - This was causing the overflow */
+  height: 100%; /* Ensures cards in the same row stay equal height */
 }
 
 .blog-card-image {
   width: 100%;
-  height: 200px;
+  height: 200px; /* Kept exactly as requested */
   overflow: hidden;
   background: rgba(255, 255, 255, 0.03);
   flex-shrink: 0;
@@ -154,9 +157,9 @@ h1:hover:after {
 .blog-card-content {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 24px; /* Increased padding for better readability */
   flex-grow: 1;
-  justify-content: space-between;
+  /* Removed justify-content: space-between to prevent awkward gaps */
 }
 
 .blog-card.show {
@@ -188,28 +191,16 @@ h1:hover:after {
 
 .blog-card-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 16px;
+  flex-direction: column; /* Stacks date and author vertically */
+  align-items: flex-start; /* Aligns both to the left */
+  margin-top: auto;        /* Pushes footer to the bottom of the card */
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;                /* Consistent spacing between date and author */
 }
 
 .blog-card:hover .blog-card-image img {
   transform: scale(1.05);
-}
-
-.blog-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
 .blog-category {
@@ -231,17 +222,17 @@ h1:hover:after {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.85rem;
   font-weight: 500;
-  margin-bottom: 12px;
   font-family: "Orbitron", sans-serif;
   letter-spacing: 0.5px;
+  margin-bottom: 0;        /* Removed individual margin to use flex gap */
 }
 
 .blog-author {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.85rem;
   font-weight: 500;
-  margin-top: 12px;
   font-family: "Orbitron", sans-serif;
+  margin-top: 0;           /* Removed individual margin to use flex gap */
 }
 
 .blog-title {
@@ -257,9 +248,15 @@ h1:hover:after {
 .blog-excerpt {
   color: rgba(255, 255, 255, 0.77);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-top: 8px;
+  margin-bottom: 16px; /* Added spacing before footer */
   flex-grow: 1;
+  /* Optional: Limits long text to 4 lines to keep cards uniform */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .empty {
@@ -271,6 +268,7 @@ h1:hover:after {
   grid-column: 1 / -1;
 }
 
+/* Adjustments for mobile to ensure cards don't feel too cramped */
 @media (max-width: 720px) {
   .hero {
     flex-direction: column;
@@ -284,6 +282,10 @@ h1:hover:after {
 
   .blog-posts {
     grid-template-columns: 1fr;
+  }
+  
+  .blog-card-image {
+    height: 180px; /* Slightly smaller on mobile to save vertical space */
   }
 }
 
