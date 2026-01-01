@@ -52,16 +52,18 @@ async function loadBlogPosts() {
   const empty = document.getElementById("empty-placeholder");
   if (!container || !empty) return;
 
+  // Check if draft mode is enabled via URL: /blog/?draft=true
+  const urlParams = new URLSearchParams(window.location.search);
+  const showDrafts = urlParams.get('draft') === 'true';
+
   try {
     container.innerHTML = "";
     empty.style.display = "none";
 
-    // Load list of post slugs
     const slugsResp = await fetch("/pr-preview/pr-13/src/data/blogs/slugs.json", { cache: "no-cache" });
     if (!slugsResp.ok) throw new Error("Failed to load slugs");
     const slugs = await slugsResp.json();
 
-    // Fetch and parse each post's front matter
     const posts = await Promise.all(
       slugs.map(async (slug) => {
         try {
@@ -70,7 +72,16 @@ async function loadBlogPosts() {
           const markdown = await resp.text();
           const { frontMatter } = parseFrontMatter(markdown);
           
-          // Check for cover image
+          // DRAFT LOGIC: 
+          // 1. If 'draft' is not specified, it defaults to true.
+          // 2. We convert the value to a boolean.
+          const isDraft = frontMatter.draft !== undefined ? String(frontMatter.draft) === 'true' : true;
+
+          // If it's a draft and we aren't in draft mode, skip this post
+          if (isDraft && !showDrafts) {
+            return null;
+          }
+
           const coverImage = await checkCoverImage(slug);
           
           return {
@@ -82,6 +93,7 @@ async function loadBlogPosts() {
             category: frontMatter.category || "Uncategorized",
             tags: frontMatter.tags || [],
             coverImage,
+            isDraft // Pass this along if you want to style draft cards differently
           };
         } catch (err) {
           console.warn(`Failed to load post ${slug}:`, err);
@@ -90,13 +102,14 @@ async function loadBlogPosts() {
       })
     );
 
-    // Filter out null posts and sort by date (newest first)
+    // Filter out nulls and sort
     const validPosts = posts
       .filter(post => post !== null)
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
     if (validPosts.length === 0) {
       empty.style.display = "block";
+      empty.textContent = showDrafts ? "No draft posts found." : "No public blog posts found.";
       return;
     }
 

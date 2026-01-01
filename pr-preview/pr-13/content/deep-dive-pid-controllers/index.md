@@ -6,6 +6,7 @@ summary: "An advanced look at Proportional-Integral-Derivative control, featurin
 author: "RIGNITC Dev"
 category: "Control Systems"
 tags: [robotics, control, math, firmware]
+draft: false
 ---
 
 # Precision Control: Deep Dive into PID Algorithms
