@@ -127,14 +127,6 @@ function renderBlogCards(posts, container) {
     card.href = `/pr-preview/pr-13/blog/post.html?post=${post.slug}`;
     card.setAttribute("tabindex", "0");
 
-    // Add cover image as background if available
-    if (post.coverImage) {
-      card.style.backgroundImage = `url(${post.coverImage})`;
-      card.style.backgroundSize = "cover";
-      card.style.backgroundPosition = "center";
-      card.classList.add("has-cover");
-    }
-
     const date = new Date(post.date);
     const formattedDate = date.toLocaleDateString("en-US", {
       year: "numeric",
@@ -143,12 +135,17 @@ function renderBlogCards(posts, container) {
     });
 
     card.innerHTML = `
+      ${post.coverImage ? `<div class="blog-card-image">
+        <img src="${post.coverImage}" alt="${escapeHtml(post.title)}" loading="lazy">
+      </div>` : ''}
       <div class="blog-card-content">
         ${post.category ? `<div class="blog-category">${escapeHtml(post.category)}</div>` : ''}
-        <div class="blog-date">${escapeHtml(formattedDate)}</div>
         <div class="blog-title">${escapeHtml(post.title)}</div>
         <div class="blog-excerpt">${escapeHtml(post.summary)}</div>
-        ${post.author ? `<div class="blog-author">By ${escapeHtml(post.author)}</div>` : ''}
+        <div class="blog-card-footer">
+          <div class="blog-date">${escapeHtml(formattedDate)}</div>
+          ${post.author ? `<div class="blog-author">By ${escapeHtml(post.author)}</div>` : ''}
+        </div>
       </div>
     `;
 

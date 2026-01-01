@@ -17,7 +17,8 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* Keep this if you want to prevent side-scrolling */
 }
 
 body {
@@ -52,6 +53,8 @@ body {
   grid-template-columns: 1fr var(--toc-width);
   gap: 60px;
   position: relative;
+  /* Add this to ensure the grid items can stretch */
+  align-items: start;
 }
 
 .blog-post-content {
@@ -262,7 +265,8 @@ body {
   color: var(--accent);
 }
 
-.blog-post-content .markdown-body pre {
+.blog-post-content .markdown-body .code-block-wrapper {
+  position: relative;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -271,11 +275,64 @@ body {
   margin: 2em 0;
 }
 
-.blog-post-content .markdown-body pre code {
+.blog-post-content .markdown-body .code-block-wrapper pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.blog-post-content .markdown-body .code-block-wrapper code {
   background: transparent;
   padding: 0;
   color: inherit;
   font-size: 0.9em;
+}
+
+/* Code Copy Button */
+.code-copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--fg);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: "Orbitron", sans-serif;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+}
+
+.code-copy-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.code-copy-btn .copied-text {
+  display: none;
+}
+
+.code-copy-btn.copied {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.code-copy-btn.copied .copy-icon {
+  display: none;
+}
+
+.code-copy-btn.copied .copied-text {
+  display: inline;
 }
 
 .blog-post-content .markdown-body img {
@@ -391,11 +448,15 @@ body {
 ================================ */
 
 .toc-sidebar {
-  position: sticky;
-  top: 120px;
-  height: fit-content;
-  max-height: calc(100vh - 140px);
+  position: fixed; /* Forced positioning relative to the window */
+  /* This moves it to the right side of the content area */
+  left: calc(40% + (var(--max-content-width) / 2) + 0px); 
+  top: 140px; /* Aligns with the start of your post */
+  width: var(--toc-width);
+  height: auto;
+  max-height: calc(100vh - 160px);
   overflow-y: auto;
+  z-index: 10;
 }
 
 .toc {
@@ -463,6 +524,118 @@ body {
 .toc-list ul a {
   font-size: 0.85rem;
   color: var(--muted-2);
+}
+
+/* TOC FAB (Floating Action Button) for Mobile */
+.toc-fab {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9998;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--fg);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.toc-fab:hover,
+.toc-fab:active {
+  background: var(--accent);
+  color: var(--bg);
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(204, 204, 204, 0.4);
+}
+
+.toc-fab.active {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* TOC Modal Overlay */
+.toc-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.toc-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+.toc-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 90%;
+  max-width: 400px;
+  max-height: 70vh;
+  background: rgba(0, 0, 0, 0.95);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 24px;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+.toc-overlay.active .toc-modal {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.toc-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.toc-modal-header .toc-header {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.toc-close-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--fg);
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.toc-close-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
 }
 
 /* ================================
@@ -540,21 +713,133 @@ body {
   }
 
   .toc-sidebar {
-    position: relative;
-    top: 0;
-    max-height: none;
+    display: none;
   }
 
-  .toc {
-    border-top: 2px solid var(--border);
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 0;
-    background: transparent;
-    padding: 20px 0;
+  .toc-fab {
+    display: flex;
   }
 }
+
+/* ================================
+   BACK TO TOP BUTTON WITH PROGRESS
+================================ */
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  color: var(--fg);
+  cursor: pointer;
+  z-index: 9997;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important;        /* Force visibility */
+  visibility: visible !important; /* Force visibility */
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.back-to-top-progress-bg {
+  transition: stroke 0.3s ease;
+}
+
+.back-to-top-progress-fill {
+  transition: stroke-dashoffset 0.15s ease-out;
+}
+
+.back-to-top-icon {
+  font-size: 1.4rem;
+  font-weight: bold;
+  z-index: 1;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--fg);
+  background: transparent;
+  border-radius: 50%;
+}
+
+/* Hover and focus states */
+.back-to-top-btn:hover,
+.back-to-top-btn:focus {
+  background: rgba(0, 0, 0, 0.9);
+  border-color: var(--accent);
+  box-shadow: 0 6px 30px rgba(204, 204, 204, 0.2);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.back-to-top-btn:hover .back-to-top-icon,
+.back-to-top-btn:focus .back-to-top-icon {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.back-to-top-btn:hover .back-to-top-progress-fill,
+.back-to-top-btn:focus .back-to-top-progress-fill {
+  stroke: var(--fg);
+}
+
+.back-to-top-btn:active {
+  transform: translateY(0) scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.back-to-top-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Pulse animation when progress is complete */
+@keyframes pulseComplete {
+  0% {
+    box-shadow: 0 0 0 0 rgba(204, 204, 204, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(204, 204, 204, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(204, 204, 204, 0);
+  }
+}
+
+.back-to-top-btn.progress-complete .back-to-top-progress-fill {
+  animation: pulseComplete 1.5s infinite;
+}
+
+/* ================================
+   MOBILE RESPONSIVE STYLES
+================================ */
 
 @media (max-width: 768px) {
   .blog-post-container {
@@ -572,14 +857,272 @@ body {
 
   .blog-post-content .markdown-body {
     font-size: 1rem;
+    /* Force text wrapping for mobile */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
+  /* Ensure all text content wraps properly */
+  .blog-post-content .markdown-body p,
+  .blog-post-content .markdown-body li,
+  .blog-post-content .markdown-body blockquote,
+  .blog-post-content .admonition-content,
+  .blog-post-content .markdown-body th,
+  .blog-post-content .markdown-body td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Headings */
   .blog-post-content .markdown-body h1 {
     font-size: 2rem;
+    word-wrap: break-word;
   }
 
   .blog-post-content .markdown-body h2 {
     font-size: 1.75rem;
+    word-wrap: break-word;
+  }
+
+  .blog-post-content .markdown-body h3 {
+    font-size: 1.5rem;
+    word-wrap: break-word;
+  }
+
+  .blog-post-content .markdown-body h4,
+  .blog-post-content .markdown-body h5,
+  .blog-post-content .markdown-body h6 {
+    word-wrap: break-word;
+  }
+
+  /* Code blocks - full width with horizontal scroll for code */
+  .blog-post-content .markdown-body .code-block-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 6px;
+  }
+
+  .blog-post-content .markdown-body .code-block-wrapper pre {
+    min-width: 0;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .blog-post-content .markdown-body .code-block-wrapper code {
+    white-space: pre;
+    word-break: normal;
+    word-wrap: normal;
+    display: block;
+    min-width: min-content;
+    font-size: 0.85em;
+    line-height: 1.5;
+  }
+
+  /* Inline code */
+  .blog-post-content .markdown-body code:not(.blog-post-content .markdown-body .code-block-wrapper code) {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Tables - make them scrollable horizontally */
+  .blog-post-content .markdown-body table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+  }
+
+  .blog-post-content .markdown-body th,
+  .blog-post-content .markdown-body td {
+    white-space: nowrap;
+    min-width: 100px;
+  }
+
+  /* Images */
+  .blog-post-content .markdown-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Lists */
+  .blog-post-content .markdown-body ul,
+  .blog-post-content .markdown-body ol {
+    padding-left: 1.5em;
+  }
+
+  /* Blockquotes */
+  .blog-post-content .markdown-body blockquote {
+    padding-left: 1em;
+    margin-left: 0;
+    border-left-width: 3px;
+  }
+
+  /* Admonitions */
+  .blog-post-content .admonition {
+    padding: 0.75em 1em;
+  }
+
+  /* KaTeX math */
+  .blog-post-content .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.5em 0;
+  }
+
+  .blog-post-content .katex {
+    font-size: 1em;
+  }
+
+  /* Back to top button mobile adjustments */
+  .back-to-top-btn {
+    bottom: 100px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .back-to-top-icon {
+    font-size: 1.3rem;
+  }
+  
+  /* TOC FAB mobile adjustments */
+  .toc-fab {
+    bottom: 30px;
+    right: 20px;
+  }
+
+  /* Reading progress bar */
+  .reading-progress-bar {
+    height: 3px;
+  }
+}
+
+/* ================================
+   SMALL MOBILE DEVICES
+================================ */
+
+@media (max-width: 480px) {
+  .blog-post-container {
+    margin-top: 100px;
+    padding: 0 12px;
+  }
+
+  .post-title {
+    font-size: 1.75rem;
+  }
+
+  .blog-post-content .markdown-body {
+    font-size: 0.95rem;
+  }
+
+  .blog-post-content .markdown-body h1 {
+    font-size: 1.75rem;
+  }
+
+  .blog-post-content .markdown-body h2 {
+    font-size: 1.5rem;
+  }
+
+  .blog-post-content .markdown-body h3 {
+    font-size: 1.25rem;
+  }
+
+  .post-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Back to top button small mobile */
+  .back-to-top-btn {
+    bottom: 90px;
+    right: 15px;
+    width: 44px;
+    height: 44px;
+  }
+  
+  .back-to-top-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* TOC FAB small mobile */
+  .toc-fab {
+    bottom: 25px;
+    right: 15px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ================================
+   EXTRA SMALL SCREENS
+================================ */
+
+@media (max-width: 360px) {
+  .blog-post-container {
+    padding: 0 10px;
+  }
+
+  .post-title {
+    font-size: 1.6rem;
+  }
+
+  .blog-post-content .markdown-body {
+    font-size: 0.9rem;
+  }
+
+  /* Back to top button extra small */
+  .back-to-top-btn {
+    bottom: 80px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .back-to-top-icon {
+    font-size: 1.1rem;
+  }
+  
+  /* TOC FAB extra small */
+  .toc-fab {
+    bottom: 20px;
+    right: 10px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ================================
+   PREVENT HORIZONTAL SCROLLING
+================================ */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: clip;
+    width: 100%;
+  }
+  
+  main, 
+  .blog-post-container,
+  .blog-post-content,
+  .markdown-body {
+    overflow-x: hidden;
+    width: 100%;
   }
 }
 
@@ -590,3 +1133,38 @@ body {
   font-style: normal;
 }
 
+/* Desktop Only Scroll-Spy Styling */
+@media (min-width: 1201px) {
+  /* Hide nested lists by default on desktop */
+  .toc-list ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Expand nested lists when current or child is active */
+  .toc-list ul.expanded {
+    max-height: 500px; /* High enough to show sub-items */
+    opacity: 1;
+    pointer-events: auto;
+    margin-bottom: 10px;
+  }
+
+  /* Specific indicator for active section */
+  .toc-list a.active {
+    color: var(--accent) !important;
+    border-left: 2px solid var(--accent) !important;
+    padding-left: 12px;
+    font-weight: 700;
+  }
+}
+
+/* Ensure mobile links still look good when active but don't hide */
+@media (max-width: 1200px) {
+  .toc-list a.active {
+    color: var(--accent);
+    font-weight: 700;
+  }
+}
