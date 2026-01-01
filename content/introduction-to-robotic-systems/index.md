@@ -6,6 +6,7 @@ summary: Exploring the fundamentals of robotic systems, from kinematics to contr
 author: RIGNITC Team
 category: Robotics
 tags: [robotics, kinematics, control-systems, engineering]
+draft: false
 ---
 
 Robotic systems represent one of the most fascinating intersections of mechanical engineering, computer science, and mathematics. In this article, we'll explore the fundamental concepts that power modern robotics.

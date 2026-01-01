@@ -6,6 +6,7 @@ summary: How machine learning and AI are revolutionizing robotic perception, dec
 author: RIGNITC Team
 category: AI & Machine Learning
 tags: [ai, machine-learning, robotics, computer-vision]
+draft: false
 ---
 
 # Artificial Intelligence in Modern Robotics

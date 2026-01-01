@@ -6,6 +6,7 @@ summary: A beginner-friendly guide to flashing and setting up a Raspberry Pi usi
 author: Senthilnathan P L
 category: Tutorial
 tags: [raspberry-pi, tutorial, hardware]
+draft: false
 ---
 
 # Baking a Pi
