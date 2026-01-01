@@ -148,6 +148,7 @@ function renderBlogCards(posts, container) {
     });
 
     card.innerHTML = `
+      ${post.isDraft ? `<div style="background:red; color:white; position:absolute; top:10px; left:10px; padding:2px 8px; font-size:10px; z-index:10; border-radius:4px;">DRAFT</div>` : ''}
       ${post.coverImage ? `<div class="blog-card-image">
         <img src="${post.coverImage}" alt="${escapeHtml(post.title)}" loading="lazy">
       </div>` : ''}
