@@ -1,0 +1,131 @@
+[
+    {
+        "name": "Abhinav Jangir",
+        "photo": "/rignitc.github.io/assets/images/logo.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/sqweeks0p/"
+        }
+        ]
+    },
+    {
+        "name": "Ajithlal A A",
+        "photo": "/rignitc.github.io/assets/images/team/b17/ajithlal-a-a.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/ajithlal-a-a-180651189/"
+        }
+        ]
+    },
+    {
+        "name": "Satya Ashok Dowluri ",
+        "photo": "/rignitc.github.io/assets/images/team/b17/satya-ashok-dowluri.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/satyaashokdowluri/"
+        }
+        ]
+    },
+    {
+        "name": "Jayachandra Maruturi",
+        "photo": "/rignitc.github.io/assets/images/team/b17/jayachandra.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/jayachandra-maruturi/"
+        }
+        ]
+    },
+    {
+        "name": "Justine Devasia ",
+        "photo": "/rignitc.github.io/assets/images/team/b17/justin-devasia.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/justine-p-devasia/"
+        }
+        ]
+    },
+    
+    {
+
+        "name": "Nikesh Krishnan",
+        "photo": "/rignitc.github.io/assets/images/team/b17/nikesh-krishnan.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/nikesh-krishnan-794493169/"
+        }
+        ]
+    },
+    {
+
+        "name": "Rahul R",
+        "photo": "/rignitc.github.io/assets/images/team/b17/rahul-r.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/rahulluharrahmathravi/"
+        }
+        ]
+    },
+    {
+
+        "name": "Sashank Chitoori",
+        "photo": "/rignitc.github.io/assets/images/team/b17/sashank.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/sashank-chittoori/"
+        }
+        ]
+    },
+    {
+
+        "name": "Sreyas I S",
+        "photo": "/rignitc.github.io/assets/images/logo.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/sreyas-i-s-564404174/"
+        }
+        ]
+    },
+    {
+
+        "name": "Vijaya Krishna Verisetty",
+        "photo": "/rignitc.github.io/assets/images/team/b17/vijaya-krishna-veerisetty.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/vijaya-krishna-veerisetty-723063182/"
+        }
+        ]
+    },
+    {
+
+        "name": "Vishnu Ajith",
+        "photo": "/rignitc.github.io/assets/images/team/b17/vishnu-ajith.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/vishnu-ajith/"
+        }
+        ]
+    }
+    
+]
