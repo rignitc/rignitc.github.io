@@ -38,7 +38,15 @@ const companyImages = [
   "assets/images/companies/samsung.webp",
   "assets/images/companies/ti.webp",
   "assets/images/companies/uidai.webp",
-  "assets/images/companies/visa.webp"
+  "assets/images/companies/bosh.webp",
+  "assets/images/companies/oracle.webp",
+  "assets/images/companies/ibm.webp",
+  "assets/images/companies/microsoft.webp",
+  "assets/images/companies/sandisk.webp",
+  "assets/images/companies/tesla.webp"
+
+  
+
 ];
 
 /* UNIVERSITY LOGOS */
@@ -61,7 +69,10 @@ const universityImages = [
   "assets/images/companies/uc-san-diego.webp",
   "assets/images/companies/ucdavis.webp",
   "assets/images/companies/wisconsin-madison.png",
-  "assets/images/companies/wpi.webp"
+  "assets/images/companies/wpi.webp",
+  "assets/images/companies/IITK.webp",
+  "assets/images/companies/IIMA.webp",
+  "assets/images/companies/ETH.webp"
 ];
 
 function fillSlider(sliderId, images) {

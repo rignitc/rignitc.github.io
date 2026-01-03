@@ -1,7 +1,7 @@
 [
     {
         "name": "JOVIN SAVIO",
-        "photo": "/rignitc.github.io/assets/images/team/b12/JOVIN-SAVIO.webp",
+        "photo": "/rignitc.github.io/assets/images/team/b12/jovin-savio.webp",
         "role": "Team Member",
         "socials": [
         {
@@ -10,6 +10,7 @@
         }
         ]
     },
+    
     {
         "name": "RAMAKRISHNA REDDY.K",
         "photo": "/rignitc.github.io/assets/images/team/b12/RAMAKRISHNA-REDDY.webp",
