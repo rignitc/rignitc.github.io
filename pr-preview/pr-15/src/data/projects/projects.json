@@ -1,0 +1,70 @@
+[
+  {
+    "id": "gnss-drone",
+    "title": "GNSS Denied UAV",
+    "short_description": "A drone designed to operate without GNSS signals for navigation.",
+    "description": "This autonomous drone is developed for GNSS-denied environments such as indoors, tunnels, or under dense canopy. It leverages onboard sensors, visual odometry, SLAM techniques, and AI-driven navigation to maintain precise positioning and stability where GPS is unavailable. Designed for applications in defense, search and rescue, and exploration.",
+    "link": "gnss-drone",
+    "image": "gnss-drone.webp"
+  },
+
+  {
+    "id": "avibot",
+    "title": "Avibot",
+    "short_description": "Automated Egg Collecting Farm Bot that optimizes poultry farm efficiency.",
+    "description": "Avibot is designed to automate egg collection in poultry farms, ensuring faster collection, reducing human labor, and improving overall farm productivity. Equipped with sensors and AI-based path planning, it navigates poultry houses efficiently while minimizing stress on the birds.",
+    "link": "avibot",
+    "image": "avibot.webp"
+  },
+  {
+    "id": "riggu",
+    "title": "Riggu",
+    "short_description": "Semi-humanoid healthcare assistant robot.",
+    "description": "A semi-humanoid robot for healthcare assistance, equipped with SLAM-based navigation, a touchscreen database, facial recognition, and autonomous item retrieval. Riggu aims to support doctors by enhancing patient care and decision-making.",
+    "link": "riggu",
+    "image": "riggu-real.webp"
+  },
+
+   {
+    "id": "hospital-bed",
+    "title": "Adjustable Hospital Bed",
+    "short_description": "Chain-driven hospital bed with tilt and ROS2 control.",
+    "description": "A novel chain-driven hospital bed designed to prevent bedsores with tilting features and a compact design. It uses ROS2 for communication and can be controlled via a remote, mobile app, or IoT devices using OpenCV-based blink detection.",
+    "link": "hospital-bed",
+    "image": "hospbed.webp"
+  },
+
+  {
+    "id": "auv",
+    "title": "AUV Varuna",
+    "short_description": "An advanced underwater vehicle with object detection and torpedo launch capability.",
+    "description": "The AUV Varuna, an underwater robot, features five degrees of freedom and capabilities like object detection, precise path following, and torpedo launching. Equipped with sensors to monitor temperature and pressure, along with webcams for image data acquisition, it is designed to advance underwater robotics.",
+    "link": "auv",
+    "image": "auv-varuna.webp"
+  },
+  {
+    "id": "multi-rotor-uav",
+    "title": "Fully Actuated Multi-Rotor UAV",
+    "short_description": "Smart farming UAV with fully actuated rotors.",
+    "description": "A UAV designed for smart farming, overcoming limitations of conventional UAVs with fully actuated rotors for precise interaction with crops. It focuses on soil map generation through on-the-go soil data collection and addresses challenges like low flight time and payload capacity.",
+    "link": "multi-rotor-uav",
+    "image": "multi-rotor-uav.webp"
+  },
+ 
+  {
+    "id": "soil-uav",
+    "title": "UAV for Soil Mapping",
+    "short_description": "Drone with multispectral cameras for soil & crop analysis.",
+    "description": "An unmanned aerial vehicle equipped with multispectral and hyperspectral cameras for high-resolution soil mapping. It provides valuable data on soil properties, crop health, and terrain, contributing to efficient agricultural and environmental applications.",
+    "link": "soil-uav",
+    "image": "soil-uav.webp"
+  },
+  {
+    "id": "coconut-sorting-robot",
+    "title": "Coconut Sorting Robot",
+    "short_description": "Automated system to sort coconuts by physical and visual traits.",
+    "description": "The main goal of the project is to develop and design an automated system that can effectively sort coconuts according to a variety of physical and visual characteristics. With its labour-intensive, time-consuming, and inconsistent nature, the system aims to overcome the drawbacks of conventional manual sorting techniques.",
+    "link": "coconut-sorting-robot",
+    "image": "coconut-sorting.webp"
+  }
+]
