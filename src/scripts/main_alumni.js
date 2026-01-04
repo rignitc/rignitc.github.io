@@ -40,7 +40,7 @@ const companyImages = [
   "assets/images/companies/uidai.webp",
   "assets/images/companies/bosh.webp",
   "assets/images/companies/oracle.webp",
-  "assets/images/companies/ibm.webp",
+  "assets/images/companies/IBM.webp",
   "assets/images/companies/microsoft.webp",
   "assets/images/companies/sandisk.webp",
   "assets/images/companies/tesla.webp"
