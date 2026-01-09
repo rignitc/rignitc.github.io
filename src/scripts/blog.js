@@ -137,7 +137,7 @@ function renderBlogCards(posts, container) {
   posts.forEach((post, idx) => {
     const card = document.createElement("a");
     card.className = "blog-card";
-    card.href = `/blog/post.html?post=${post.slug}`;
+    card.href = `/blog/posts/#/${post.slug}`;
     card.setAttribute("tabindex", "0");
 
     const date = new Date(post.date);

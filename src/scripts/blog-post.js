@@ -48,23 +48,13 @@ function parseFrontMatter(markdown) {
 
 // Get slug from URL parameter
 function getSlugFromURL() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const slug = urlParams.get('post');
-  if (slug) return slug;
-
-  // Fallback: try to get from path
-  const path = window.location.pathname;
-  const match = path.match(/\/blog\/([^\/]+)\/?$/);
-  if (match) {
-    return match[1];
-  }
-  const pathParts = path.split('/').filter(p => p);
-  const blogIndex = pathParts.indexOf('blog');
-  if (blogIndex !== -1 && blogIndex < pathParts.length - 1) {
-    return pathParts[blogIndex + 1];
+  // URL: /blog/posts/#/baking-a-pie
+  if (window.location.hash.startsWith('#/')) {
+    return window.location.hash.replace('#/', '');
   }
   return null;
 }
+
 
 // Check for cover image
 async function checkCoverImage(slug) {
@@ -434,6 +424,37 @@ if (typeof marked !== "undefined") {
   marked.setOptions({ renderer });
 }
 
+function createShareHTML() {
+  return `
+    <div class="post-share">
+      <span class="share-label"><strong>Share this post:</strong></span>
+
+      <div class="share-icons">
+        <!-- WhatsApp -->
+        <button class="share-btn" data-share="whatsapp" aria-label="Share on WhatsApp">
+          <svg viewBox="0 0 24 24">
+            <path d="M20.5 3.5A11 11 0 0 0 3.9 18.7L3 22l3.4-.9A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.7.7.7-2.6-.2-.3A9 9 0 1 1 12 20.5zm5-6.6c-.3-.1-1.8-.9-2.1-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.3 8.3 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.2-.4c.1-.2 0-.4 0-.6s-.7-1.7-.9-2.3c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.8 3.8 0 0 0-1.2 2.8c0 1.6 1.2 3.1 1.3 3.3a13.4 13.4 0 0 0 5.2 4.6c.7.3 1.2.5 1.6.6a3.8 3.8 0 0 0 1.8.1c.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4s-.3-.2-.6-.3z"/>
+          </svg>
+        </button>
+
+        <!-- Instagram -->
+        <button class="share-btn" data-share="instagram" aria-label="Share on Instagram">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.1.1 1.7.2 2.1.4a4.3 4.3 0 0 1 1.6 1 4.3 4.3 0 0 1 1 1.6c.2.4.3 1 .4 2.1.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.1-.2 1.7-.4 2.1a4.3 4.3 0 0 1-1 1.6 4.3 4.3 0 0 1-1.6 1c-.4.2-1 .3-2.1.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.1-.1-1.7-.2-2.1-.4a4.3 4.3 0 0 1-1.6-1 4.3 4.3 0 0 1-1-1.6c-.2-.4-.3-1-.4-2.1C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.1.2-1.7.4-2.1a4.3 4.3 0 0 1 1-1.6 4.3 4.3 0 0 1 1.6-1c.4-.2 1-.3 2.1-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.2a5.6 5.6 0 1 0 5.6 5.6A5.6 5.6 0 0 0 12 4.4zm0 9.2a3.6 3.6 0 1 1 3.6-3.6A3.6 3.6 0 0 1 12 13.6zm5.8-9.8a1.3 1.3 0 1 1-1.3-1.3 1.3 1.3 0 0 1 1.3 1.3z"/>
+          </svg>
+        </button>
+
+        <!-- LinkedIn -->
+        <button class="share-btn" data-share="linkedin" aria-label="Share on LinkedIn">
+          <svg viewBox="0 0 24 24">
+            <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.6h.1c.5-.9 1.7-1.9 3.6-1.9 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
 // Render post
 async function renderPost() {
   const slug = getSlugFromURL();
@@ -492,6 +513,7 @@ async function renderPost() {
       </a>
       ${frontMatter.category ? `<div class="post-category">${escapeHtml(frontMatter.category)}</div>` : ''}
       <h1 class="post-title">${escapeHtml(title)}</h1>
+      ${createShareHTML()}
       <div class="post-meta">
         <div class="post-date">
           <span>📅</span>
@@ -541,9 +563,37 @@ async function renderPost() {
   // Setup reading progress bar
   setupReadingProgress();
 
+  // Share Buttons
+  setupShareButtons();
+
   // Setup back to top button
   setupBackToTop();
 }
+
+function setupShareButtons() {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.share;
+
+      if (type === 'whatsapp') {
+        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank');
+      }
+
+      if (type === 'linkedin') {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+      }
+
+      if (type === 'instagram') {
+        navigator.clipboard.writeText(window.location.href);
+        window.open('https://www.instagram.com/', '_blank');
+      }
+    });
+  });
+}
+
 
 // Setup code copy buttons
 function setupCodeCopyButtons(container) {
