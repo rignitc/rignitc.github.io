@@ -454,7 +454,7 @@ body {
   top: 140px; /* Aligns with the start of your post */
   width: var(--toc-width);
   height: auto;
-  max-height: calc(100vh - 160px);
+  height: calc(100vh - 140px);
   overflow-y: auto;
   z-index: 10;
 }
@@ -1167,4 +1167,60 @@ body {
     color: var(--accent);
     font-weight: 700;
   }
+}
+
+
+
+
+/* ================================
+   POST SHARE
+================================ */
+
+.post-share {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.share-label {
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.share-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.share-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.share-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--fg);
+}
+
+.share-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.share-btn:hover svg {
+  fill: var(--bg);
 }
