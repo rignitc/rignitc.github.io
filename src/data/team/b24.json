@@ -44,17 +44,6 @@
     ]
   },
   {
-    "name": "Kumayl",
-    "photo": "/rignitc.github.io/assets/images/team/b24/kumayl.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/kumayl-plumber-4b226b274"
-      }
-    ]
-  },
-  {
     "name": "G Harikumar",
     "photo": "/rignitc.github.io/assets/images/team/b24/g-harikumar.webp",
     "role": "Team Member",
@@ -117,17 +106,6 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/adhithyan-jayaraman-97151b1bb/"
-      }
-    ]
-  },
-  {
-    "name": "Rachel Joseph",
-    "photo": "/rignitc.github.io/assets/images/team/b24/rachel-joseph.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/rachel-joseph-7aba04363"
       }
     ]
   },
