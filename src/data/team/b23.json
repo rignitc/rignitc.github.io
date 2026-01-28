@@ -70,6 +70,10 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/shehiin/"
+      },
+      {
+        "platform": "site",
+        "url": "https://sheh.in"
       }
     ]
   },
