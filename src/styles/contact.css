@@ -369,3 +369,34 @@ span.social-label {
   letter-spacing: 1px;
   position: relative;
 }
+
+
+.captain.faculty {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 30%;
+  flex-shrink: 0;
+}
+
+.captain .details {
+  line-height: 1.6;
+}
+
+.email-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.email-row a {
+  text-decoration: none;
+  color: inherit;
+}
