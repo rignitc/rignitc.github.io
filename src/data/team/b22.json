@@ -33,6 +33,10 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/niraamay-dileep/"
+      },
+      {
+        "platform": "site",
+        "url": "https://niraamaymd.github.io/"
       }
     ]
   },
