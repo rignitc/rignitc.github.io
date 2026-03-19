@@ -26,32 +26,6 @@
     ]
   },
   {
-    "name": "Akhil T",
-    "photo": "/rignitc.github.io/assets/images/team/b23/akhil-t.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/akhilt2/"
-      }
-    ]
-  },
-  {
-    "name": "Uppuluri Sai Tejaswi",
-    "photo": "/rignitc.github.io/assets/images/team/b23/uppuluri-sai-tejaswi.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/uppuluri-sai-tejaswi-61b9b7284/"
-      },
-      {
-        "platform": "site",
-        "url": "https://saitejaswi06.github.io/Portfolio/"
-      }
-    ]
-  },
-  {
     "name": "Tarun Tom",
     "photo": "/rignitc.github.io/assets/images/team/b23/tarun-tom.webp",
     "role": "Team Member",
@@ -100,17 +74,6 @@
     ]
   },
   {
-    "name": "JOHAN SHIBU SEBASTIAN",
-    "photo": "/rignitc.github.io/assets/images/team/b23/johan-shibu-sebastian.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/johan-shibu-0055a6323"
-      }
-    ]
-  },
-  {
     "name": "Aswin Hari",
     "photo": "/rignitc.github.io/assets/images/team/b23/aswin-hari.webp",
     "role": "Team Member",
@@ -133,17 +96,6 @@
     ]
   },
   {
-    "name": "Harish V",
-    "photo": "/rignitc.github.io/assets/images/team/b23/harish-v.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "http://www.linkedin.com/in/harishvijayakumar17"
-      }
-    ]
-  },
-  {
     "name": "Hiba Fathima",
     "photo": "/rignitc.github.io/assets/images/team/b23/hiba-fathima.webp",
     "role": "Team Member",
@@ -155,28 +107,6 @@
     ]
   },
   {
-    "name": "Thota Nageswari",
-    "photo": "/rignitc.github.io/assets/images/team/b23/thota-nageswari.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/nageswari-thota-6308a2312"
-      }
-    ]
-  },
-  {
-    "name": "Navneeth Shajil",
-    "photo": "/rignitc.github.io/assets/images/team/b23/navneeth-shajil.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/navneeth-shajil-953841265/"
-      }
-    ]
-  },
-  {
     "name": "Laudyavath Bhanuchander",
     "photo": "/rignitc.github.io/assets/images/team/b23/laudyavath-bhanuchander.webp",
     "role": "Team Member",
@@ -184,17 +114,6 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/bhanuchander-laudyavath-125b3b278"
-      }
-    ]
-  },
-  {
-    "name": "SANAD BIN SAYED",
-    "photo": "/rignitc.github.io/assets/images/team/b23/sanad-bin-sayed.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/sanad-bin-sayed/"
       }
     ]
   },
