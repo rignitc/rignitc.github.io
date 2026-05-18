@@ -149,5 +149,20 @@
         "url": "https://www.linkedin.com/in/anand-das-570a5a286"
       }
     ]
+  },
+  {
+    "name": "Jagadeesh Mummana",
+    "photo": "/rignitc.github.io/assets/images/logo.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/jagadeesh-mummana/"
+      },
+      {
+        "platform": "site",
+        "url": "https://mummanajagadeesh.github.io/"
+      }
+    ]
   }
 ]

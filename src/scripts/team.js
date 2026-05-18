@@ -45,7 +45,7 @@ async function loadYear(year) {
         grid.innerHTML = "Could not load " + year + ".json";
     }
 }
-const initial = getQueryParam('year') || 'b22';
+const initial = getQueryParam('year') || 'b23';
 loadYear(initial);
 buttons.forEach(btn => btn.addEventListener('click', () => {
     const year = btn.dataset.year;
