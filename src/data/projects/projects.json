@@ -33,7 +33,14 @@
     "link": "hospital-bed",
     "image": "hospbed.webp"
   },
-
+  {
+    "id": "garbage-collection-bot",
+    "title": "Garbage Collection Bot",
+    "short_description": "An autonomous robotic system designed for localized waste collection, navigation, and bin management.",
+    "description": " that can effectively sort coconuts according to a variety of physical and visual characteristics. With its labour-intensive, time-consuming, and inconsistent nature, the system aims to overcome the drawbacks of conventional manual sorting techniques.",
+    "link": "garbage-collection-bot",
+    "image": "garbage-bot2.webp"
+  },
   {
     "id": "auv",
     "title": "AUV Varuna",
@@ -58,13 +65,5 @@
     "description": "An unmanned aerial vehicle equipped with multispectral and hyperspectral cameras for high-resolution soil mapping. It provides valuable data on soil properties, crop health, and terrain, contributing to efficient agricultural and environmental applications.",
     "link": "soil-uav",
     "image": "soil-uav.webp"
-  },
-  {
-    "id": "coconut-sorting-robot",
-    "title": "Coconut Sorting Robot",
-    "short_description": "Automated system to sort coconuts by physical and visual traits.",
-    "description": "The main goal of the project is to develop and design an automated system that can effectively sort coconuts according to a variety of physical and visual characteristics. With its labour-intensive, time-consuming, and inconsistent nature, the system aims to overcome the drawbacks of conventional manual sorting techniques.",
-    "link": "coconut-sorting-robot",
-    "image": "coconut-sorting.webp"
   }
 ]
