@@ -37,7 +37,7 @@
     "id": "garbage-collection-bot",
     "title": "Garbage Collection Bot",
     "short_description": "An autonomous robotic system designed for localized waste collection, navigation, and bin management.",
-    "description": " that can effectively sort coconuts according to a variety of physical and visual characteristics. With its labour-intensive, time-consuming, and inconsistent nature, the system aims to overcome the drawbacks of conventional manual sorting techniques.",
+    "description": "An autonomous waste collection robot equipped with intelligent navigation and object detection, the system locates public waste bins, navigates around obstacles, and automates the collection process to replace inefficient, manual sanitation routines.",
     "link": "garbage-collection-bot",
     "image": "garbage-bot2.webp"
   },
