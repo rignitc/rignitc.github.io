@@ -38,15 +38,20 @@ body {
 
 /* HERO (first section) */
 .hero {
-  margin-top: 120px;
+  min-height: 100dvh;
+  padding-top: 120px;
   /* leave room for navbar */
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: left;
-  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
   gap: 3rem;
-  /* border-bottom: 2px solid #ccc; divider for first section */
+  border-bottom: 2px solid #ccc; /* divider for first section */
+  box-sizing: border-box;
+  width: 100%;
 }
 
 #slideshow {
@@ -67,7 +72,7 @@ body {
 
 /* Section styling + dividers */
 section:not(#footer-new) {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,6 +82,8 @@ section:not(#footer-new) {
   color: #ffffff;
   border-bottom: 2px solid #ccc;
   /* divider for all sections */
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* Explicit divider for #about too (redundant but ensures consistency) */
@@ -91,9 +98,12 @@ section:not(#footer-new) {
     justify-content: center;
     text-align: center;
     gap: 2rem;
-    margin-top: 80px;
+    padding-top: 80px;
     /* reduced for navbar */
-    padding: 1.5rem 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1.5rem;
+    min-height: 100dvh;
   }
 
   /* Slideshow fixed box */
@@ -112,6 +122,7 @@ section:not(#footer-new) {
   section {
     font-size: 1.8rem;
     padding: 2rem 1rem;
+    min-height: 100dvh;
   }
 }
 
