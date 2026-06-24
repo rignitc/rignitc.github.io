@@ -1,0 +1,179 @@
+#people {
+  position: relative;
+  background: #111;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  padding: 100px 0 !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  height: auto !important;
+}
+
+/* ===============================
+   BACKGROUND GRID
+================================ */
+
+#people::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, #fff 2px, transparent 2px),
+    radial-gradient(circle, #fff 2px, transparent 2px);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+#people .people-header {
+  font-size: 2.5rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+  z-index: 1;
+}
+
+#people .people-header.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   SLIDER WRAPPERS
+================================ */
+
+#people .slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===============================
+   SLIDERS
+================================ */
+
+#companySlider,
+#universitySlider {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+}
+
+/* Slider logos */
+#companySlider img,
+#universitySlider img {
+  height: 50px;
+  margin-right: 50px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  user-select: none;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+#companySlider {
+  animation: scroll-left 40s linear infinite;
+}
+
+#universitySlider {
+  animation: scroll-right 40s linear infinite;
+}
+
+/* ===============================
+   STARTUP SECTION (RESTORED)
+================================ */
+
+#people .startup-header {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 80px;
+  z-index: 1;
+}
+
+#people .startup-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1000px;
+  z-index: 1;
+}
+
+#people .startup-grid img {
+  height: 100px;
+  max-width: 280px;
+  object-fit: contain;
+  filter: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#people .startup-grid img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  #people {
+    padding: 60px 20px !important;
+    gap: 30px;
+  }
+
+  #people .people-header {
+    font-size: 1.8rem;
+  }
+
+  #companySlider img,
+  #universitySlider img {
+    height: 30px;
+    margin-right: 30px;
+  }
+
+  #people .startup-header {
+    font-size: 1.8rem;
+    margin-top: 50px;
+  }
+
+  #people .startup-grid {
+    gap: 30px;
+    margin-top: 25px;
+  }
+
+  #people .startup-grid img {
+    height: 80px;
+    max-width: 160px;
+  }
+}

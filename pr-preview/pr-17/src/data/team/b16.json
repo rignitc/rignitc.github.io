@@ -1,0 +1,120 @@
+[
+    {
+        "name": "Abhey Sujith ",
+        "photo": "/rignitc.github.io/assets/images/team/b16/abhey-sujith.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/abhey-sujith/"
+        }
+        ]
+    },
+    {
+        "name": "Arunima B Krishna ",
+        "photo": "/rignitc.github.io/assets/images/team/b16/logo.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/arunima-b-krishna-9ba968145/"
+        }
+        ]
+    },
+    {
+        "name": "Ashish T Vasant ",
+        "photo": "/rignitc.github.io/assets/images/team/b16/Ashish-Vasant.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/ashishvasant/"
+        }
+        ]
+    },
+    
+    {
+
+        "name": "Gali Amoolya",
+        "photo": "/rignitc.github.io/assets/images/team/b16/gali-amoolya.webp",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/gali-amoolya/"
+        }
+        ]
+    },
+    {
+
+        "name": "Guda Harsha Vardhan",
+        "photo": "/rignitc.github.io/assets/images/team/b16/guda-harsha-vardhan.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/harsha-vardhan-guda/"
+        }
+        ]
+    },
+    {
+
+        "name": "Kotaru Lakshmi Lavanya",
+        "photo": "/rignitc.github.io/assets/images/team/b16/k-l-lavanya.webp",
+        "role": "Team Member",
+        "socials": []
+    },
+    {
+
+        "name": "Kiran G Krishnan",
+        "photo": "/rignitc.github.io/assets/images/team/b16/kiran-g.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/kgkrishnan97/"
+        }
+        ]
+    },
+    {
+
+        "name": "Meghana Hari",
+        "photo": "/rignitc.github.io/assets/images/team/b16/meghana-hari.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/meghana-hari/"
+        }
+        ]
+    },
+    {
+
+        "name": "Nihal Saji",
+        "photo": "/rignitc.github.io/assets/images/team/b16/nihal-saji.webp",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/nihalsaji/"
+        }
+        ]
+    },
+    {
+
+        "name": "Sreepada Madhusudhan",
+        "photo": "/rignitc.github.io/assets/images/team/b16/Sreepada-Madhusudhan.webp",
+        "role": "Team Member",
+        "socials": []
+    },
+    {
+
+        "name": "Vishnu S",
+        "photo": "/rignitc.github.io/assets/images/team/b16/vishnu-s.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/vishnu-s-4046b1148/"
+        }
+        ]
+    }
+]

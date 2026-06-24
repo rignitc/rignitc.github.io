@@ -1,0 +1,145 @@
+[
+  {
+    "name": "Piyush Kumar",
+    "photo": "/rignitc.github.io/assets/images/team/b22/piyush-kumar.webp",
+    "role": "Team Lead",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/piyushx77/"
+      },
+      {
+        "platform": "site",
+        "url": "https://piyushx77.my.canva.site/"
+      }
+    ]
+  },
+  {
+    "name": "Krishnachandran R",
+    "photo": "/rignitc.github.io/assets/images/team/b22/krishnachandran-r.webp",
+    "role": "Team Lead",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/krishnachandran-r-625802263"
+      }
+    ]
+  },
+  {
+    "name": "Niraamay Dileep",
+    "photo": "/rignitc.github.io/assets/images/team/b22/niraamay-dileep.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/niraamay-dileep/"
+      },
+      {
+        "platform": "site",
+        "url": "https://niraamaymd.github.io/"
+      }
+    ]
+  },
+  {
+    "name": "Arnav Mishra",
+    "photo": "/rignitc.github.io/assets/images/team/b22/arnav-mishra.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/arnav-m4393/"
+      }
+    ]
+  },
+  {
+    "name": "Dogga Vamsidathu",
+    "photo": "/rignitc.github.io/assets/images/team/b22/dogga-vamsidathu.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/vamsidathu/"
+      }
+    ]
+  },
+  {
+    "name": "Gunukula Nithin Yadav",
+    "photo": "/rignitc.github.io/assets/images/team/b22/gunukula-nithin-yadav.webp",
+    "role": "Team Member",
+    "socials": []
+  },
+  {
+    "name": "Jomal Joy",
+    "photo": "/rignitc.github.io/assets/images/team/b22/jomal-joy.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/jomaljoy08/"
+      }
+    ]
+  },
+  {
+    "name": "Jerin Shaji",
+    "photo": "/rignitc.github.io/assets/images/team/b22/jerin-shaji.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/jerinshaji2026/"
+      }
+    ]
+  },
+  {
+    "name": "Indumathi Mantripragada",
+    "photo": "/rignitc.github.io/assets/images/team/b22/indumathi-mantripragada.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/indumathi-mantripragada-5a40a7256/"
+      }
+    ]
+  },
+  {
+    "name": "Prajul Snehajan",
+    "photo": "/rignitc.github.io/assets/images/team/b22/prajul-snehajan.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/prajul-snehajan/"
+      }
+    ]
+  },
+  {
+    "name": "Kotakota Venkatsai",
+    "photo": "/rignitc.github.io/assets/images/team/b22/kotakota-venkatsai.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/kottakota-venkatasai"
+      }
+    ]
+  },
+  {
+    "name": "Mohammed Rashith K P",
+    "photo": "/rignitc.github.io/assets/images/team/b22/mohammed-rashith-kp.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/mohammed-rashith-kp/"
+      },
+      {
+        "platform": "github",
+        "url": "https://github.com/mohammedrashithkp"
+      },
+      {
+        "platform": "site",
+        "url": "https://mrkp-dev.netlify.app/"
+      }
+    ]
+  }
+]
