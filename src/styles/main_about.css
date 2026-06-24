@@ -38,9 +38,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 100dvh;
+  min-height: 100vh;
   gap: 50px;
   flex-wrap: wrap;
+  border-top: 2px solid #ccc;
 }
 
 #about .about-text,
