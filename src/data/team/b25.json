@@ -89,6 +89,17 @@
     ]
   },
   {
+    "name": "Maria Joe Crispin",
+    "photo": "assets/images/team/b25/Maria Joe Crispin.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "http://www.linkedin.com/in/joecrispin1587"
+      }
+    ]
+  },
+  {
     "name": "Mohammed Ajmal B",
     "photo": "assets/images/team/b25/Mohammed_Ajmal_B.webp",
     "role": "Team Member",
